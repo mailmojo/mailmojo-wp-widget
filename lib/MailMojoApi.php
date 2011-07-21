@@ -1,25 +1,11 @@
 <?php
-/*  Copyright 2011  Eliksir AS  (email : post@e5r.no)
-
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License, version 2, as
-    published by the Free Software Foundation.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-*/
-
 /**
- * Simple MailMojo API class for subscribing/unsubscribing a recipient for a MailMojo 2 account.
+ * Simple MailMojo API class.
+ *
+ * Currently supports subscribing and unsubscribing recipients for a MailMojo account.
  * Requires the PHP curl extension.
  *
- * Copyright Z-it Productions
+ * Copyright 2011, Eliksir AS <http://e5r.no>
  */
 class MailMojoApi {
 	private $username;
@@ -41,6 +27,9 @@ class MailMojoApi {
 
 	/**
 	 * Subscribes a recipient to the specified list.
+	 *
+	 * If a recipient with the specified email address already exists, that recipient is
+	 * updated with the supplied data.
 	 *
 	 * @param string $lid   ID of list to subscribe contact to.
 	 * @param string $email Valid email address of the recipient.
@@ -66,6 +55,9 @@ class MailMojoApi {
 
 	/**
 	 * Unsubscribes the recipient with the specified email address.
+	 *
+	 * This gives no indication whether the recipient was indeed subscribed or not.
+	 * Success only indicates that communication with the MailMojo server was successful.
 	 *
 	 * @param int $lid      ID of list to unsubscribe contact from.
 	 * @param string $email Valid email address of the recipient.
@@ -99,6 +91,7 @@ class MailMojoApi {
 
 	/**
 	 * Builds an URL encoded array of all tags supplied in an array.
+	 *
 	 * Each value in the array is expected to be a string. The string values can be
 	 * comma-separated tag lists, which will be split into separate tag values in the returned
 	 * array.
@@ -146,4 +139,3 @@ class MailMojoApi {
 		return "http://{$this->username}.mailmojo.no/{$target}";
 	}
 }
-?>
