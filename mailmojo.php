@@ -2,14 +2,15 @@
 /*
 Plugin Name: MailMojo Widget
 Plugin URI: http://github.com/eliksir/MailMojo-WP-Widget
-Description: Add a MailMojo signup widget to your Wordpress site
+Description: Adds a signup widget for a MailMojo mailing list to your WordPress site.
 Author: Eliksir AS
 Author URI: http://e5r.no
 Version: 0.1
-Author URI: http://github.com/eliksir/MailMojo-Integrations/wordpress
 */
 
-/*  Copyright 2011  Eliksir AS  (email : post@e5r.no)
+/*
+ * Copyright 2011 Eliksir AS <http://e5r.no>
+ * License: GPLv2 <http://www.gnu.org/licenses/gpl-2.0.html>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as

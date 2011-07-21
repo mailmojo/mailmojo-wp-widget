@@ -1,17 +1,17 @@
 # Copyright 2011 MailMojo Widget
 msgid ""
 msgstr ""
-"Project-Id-Version: MailMojo widget 0.1\n"
-"Report-Msgid-Bugs-To: \n"
+"Project-Id-Version: MailMojo Widget 0.1\n"
+"Report-Msgid-Bugs-To: https://github.com/eliksir/MailMojo-WP-Widget/issues\n"
 "POT-Creation-Date: 2011-07-21 12:39+0100\n"
 "Last-Translator: Stian Prestholdt <stian@e5r.no>\n"
-"Language-Team: Eliksir AS <post@e5r.no>\n"
+"Language-Team: Eliksir AS <dev@e5r.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: mailmojo-widget.php:28
-msgid "For easly integrating the signup form on your site."
+msgid "Easily integrate a mailing list signup form."
 msgstr ""
 
 #: mailmojo-widget.php:30
@@ -23,7 +23,7 @@ msgid "Click to add more"
 msgstr ""
 
 #: mailmojo-widget.php:69
-msgid "You need to add your MailMojo account information on the"
+msgid "You need to enter your MailMojo account information on the"
 msgstr ""
 
 #: mailmojo-widget.php:70
@@ -31,7 +31,7 @@ msgid "MailMojo settings page"
 msgstr ""
 
 #: mailmojo-widget.php:77
-msgid "Newsletter signup"
+msgid "Newsletter Signup"
 msgstr ""
 
 #: mailmojo-widget.php:80
@@ -43,7 +43,7 @@ msgid "Sign me up!"
 msgstr ""
 
 #: mailmojo-widget.php:83
-msgid "You successfully signed up."
+msgid "Ta-da! You've successfully signed up. Thank you!"
 msgstr ""
 
 #: mailmojo-widget.php:137
@@ -51,7 +51,7 @@ msgid "General"
 msgstr ""
 
 #: mailmojo-widget.php:138
-msgid "List ID"
+msgid "MailMojo List ID"
 msgstr ""
 
 #: mailmojo-widget.php:139
@@ -59,24 +59,27 @@ msgid "Title"
 msgstr ""
 
 #: mailmojo-widget.php:140
-msgid "Description"
+msgid "Description Below Title"
 msgstr ""
 
 #: mailmojo-widget.php:141
-msgid "Include name"
+msgid "Include name field"
 msgstr ""
 
 #: mailmojo-widget.php:142
-msgid "Button text"
+msgid "Signup Button Text"
 msgstr ""
 
 #: mailmojo-widget.php:143
-#: mailmojo-widget.php:145
-msgid "Tags"
+msgid "Optional Tags"
 msgstr ""
 
 #: mailmojo-widget.php:144
-msgid "Tag description"
+msgid "Tag Selection Label"
+msgstr ""
+
+#: mailmojo-widget.php:145
+msgid "Tags (comma separated)"
 msgstr ""
 
 #: mailmojo-widget.php:146
@@ -84,7 +87,7 @@ msgid "Notifications"
 msgstr ""
 
 #: mailmojo-widget.php:147
-msgid "Success message"
+msgid "Success Message"
 msgstr ""
 
 #: mailmojo-widget.php:187
@@ -92,20 +95,23 @@ msgid "Name"
 msgstr ""
 
 #: mailmojo-widget.php:221
-msgid "Email"
+msgid "E-mail"
 msgstr ""
 
-#: mailmojo-widget.php:271
-msgid "Missing email address"
+#: mailmojo-widget.php:272
+msgid "You must provide an e-mail address."
 msgstr ""
 
-#: mailmojo-widget.php:274
-msgid "Invalid email address"
+#: mailmojo-widget.php:275
+msgid "Invalid e-mail address."
 msgstr ""
 
-#: mailmojo-widget.php:284
-#: mailmojo-widget.php:288
-msgid "Something went wrong"
+#: mailmojo-widget.php:285
+msgid "An unknown error occured."
+msgstr ""
+
+#: mailmojo-widget.php:289
+msgid "PHP curl extension not installed."
 msgstr ""
 
 #: mailmojo-plugin.php:118
@@ -113,7 +119,7 @@ msgid "MailMojo Settings"
 msgstr ""
 
 #: mailmojo-plugin.php:119
-msgid "Type in your MailMojo-account username to enable the widget."
+msgid "Enter the username of the MailMojo account where the mailing list you want signups to are located. After saving the changes, go to the Widgets menu in the Appearance section to configure your widget."
 msgstr ""
 
 #: mailmojo-plugin.php:142
@@ -121,6 +127,6 @@ msgid "Username"
 msgstr ""
 
 #: mailmojo-plugin.php:143
-msgid "Save changes"
+msgid "Save Changes"
 msgstr ""
 

@@ -116,7 +116,7 @@ class MailMojoPlugin {
 HTML;
 		echo sprintf($output,
 				__('MailMojo Settings', 'mailmojo'),
-				__('Type in your MailMojo-account username to enable the widget.', 'mailmojo')
+				__('Enter the username of the MailMojo account where the mailing list you want signups to are located. After saving the changes, go to the Widgets menu in the Appearance section to configure your widget.', 'mailmojo')
 		);
 		settings_fields('mailmojo_options');
 		$output = <<<HTML
@@ -140,7 +140,7 @@ HTML;
 HTML;
 		echo sprintf($output,
 				__('Username', 'mailmojo'),
-				__('Save changes', 'mailmojo')
+				__('Save Changes', 'mailmojo')
 		);
 	}
 

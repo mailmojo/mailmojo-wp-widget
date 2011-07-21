@@ -25,7 +25,7 @@ class MailMojoWidget extends WP_Widget {
 	 */
 	public function __construct() {
 		$options = array(
-			'description' => __('For easly integrating the signup form on your site.', 'mailmojo')
+			'description' => __('Easily integrate a mailing list signup form.', 'mailmojo')
 		);
 		parent::__construct('mailmojo', __('MailMojo Signup Form', 'mailmojo'), $options);
 
@@ -66,7 +66,7 @@ class MailMojoWidget extends WP_Widget {
 			$adminUrl = get_admin_url($blog_id);
 			$output = "<p>%s <a href=\"{$adminUrl}options-general.php?page=mailmojo/mailmojo-plugin.php\">%s</a>.</p>";
 			echo sprintf($output,
-				__('You need to add your MailMojo account information on the', 'mailmojo'),
+				__('You need to enter your MailMojo account information on the', 'mailmojo'),
 				__('MailMojo settings page', 'mailmojo')
 			);
 			return;
@@ -74,13 +74,13 @@ class MailMojoWidget extends WP_Widget {
 
 		$defaults = array(
 			'listid' => '',
-			'title' => __('Newsletter signup', 'mailmojo'),
+			'title' => __('Newsletter Signup', 'mailmojo'),
 			'desc' => '',
 			'incname' => false,
 			'tagdesc' => __('Interests', 'mailmojo'),
 			'tags' => '',
 			'buttontext' => __('Sign me up!', 'mailmojo'),
-			'successmsg' => __('You successfully signed up.', 'mailmojo')
+			'successmsg' => __('Ta-da! You\'ve successfully signed up. Thank you!', 'mailmojo')
 		);
 		$vars = wp_parse_args($instance, $defaults);
 		extract($vars);
@@ -107,7 +107,7 @@ class MailMojoWidget extends WP_Widget {
 	<label for="{$this->get_field_id('incname')}">
 		<input type="checkbox" id="{$this->get_field_id('incname')}"
 			name="{$this->get_field_name('incname')}" {$incname}>
-		%s?
+		%s
 	</label>
 </p>
 <p>
@@ -135,16 +135,16 @@ class MailMojoWidget extends WP_Widget {
 HTML;
 		echo sprintf($output,
 			__('General', 'mailmojo'),
-			__('List ID', 'mailmojo'),
+			__('MailMojo List ID', 'mailmojo'),
 			__('Title', 'mailmojo'),
-			__('Description', 'mailmojo'),
-			__('Include name', 'mailmojo'),
-			__('Button text', 'mailmojo'),
-			__('Tags', 'mailmojo'),
-			__('Tag description', 'mailmojo'),
-			__('Tags', 'mailmojo'),
+			__('Description Below Title', 'mailmojo'),
+			__('Include name field', 'mailmojo'),
+			__('Signup Button Text', 'mailmojo'),
+			__('Optional Tags', 'mailmojo'),
+			__('Tag Selection Label', 'mailmojo'),
+			__('Tags (comma separated)', 'mailmojo'),
 			__('Notifications', 'mailmojo'),
-			__('Success message', 'mailmojo')
+			__('Success Message', 'mailmojo')
 		);
 	}
 
@@ -218,7 +218,7 @@ HTML;
 {$after_widget}
 HTML;
 		echo sprintf($output,
-			__('Email', 'mailmojo'),
+			__('E-mail', 'mailmojo'),
 			plugins_url('img/loader.gif', __FILE__)
 		);
 	}
@@ -269,10 +269,10 @@ HTML;
 			$result = array('msg' => '', 'success' => false);
 
 			if (empty($email)) {
-				$result['msg'] = __('Missing email address', 'mailmojo');
+				$result['msg'] = __('You must provide an e-mail address.', 'mailmojo');
 			}
 			else if (!is_email($email)) {
-				$result['msg'] = __('Invalid email address', 'mailmojo');
+				$result['msg'] = __('Invalid e-mail address.', 'mailmojo');
 			}
 			else {
 				try {
@@ -282,11 +282,11 @@ HTML;
 						$result['msg'] = $this->getSuccessMsg();
 					}
 					else {
-						$result['msg'] = __('Something went wrong', 'mailmojo');
+						$result['msg'] = __('An unknown error occured.', 'mailmojo');
 					}
 				}
 				catch (Exception $e) {
-					$result['msg'] = __('Something went wrong', 'mailmojo');
+					$result['msg'] = __('PHP curl extension not installed.', 'mailmojo');
 				}
 			}
 			header('Content-Type: application/json');
