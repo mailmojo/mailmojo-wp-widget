@@ -1,0 +1,24 @@
+.widget_mailmojo div.notice {
+	display: none;
+	margin-top: 10px;
+}
+
+.widget_mailmojo div.notice.error {
+	color: red;
+}
+
+.widget_mailmojo form { }
+
+	.widget_mailmojo form ul {
+		list-style: none;
+	}
+
+	.widget_mailmojo form input.submit,
+	.widget_mailmojo form img.loader {
+		margin-top: 10px;
+	}
+
+	.widget_mailmojo form img.loader {
+		display: none;
+		margin-left: 5px;
+	}
