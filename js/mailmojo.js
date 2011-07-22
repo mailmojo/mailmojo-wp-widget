@@ -20,7 +20,7 @@
  * messages.
  */
 jQuery(document).ready(function () {
-	var noticeHtml = '<div class="notice"><strong></strong><br/><a href="#">' + i18n.linkText + '</a></div>';
+	var noticeHtml = '<div class="notice"><strong></strong><br/><a href="#">' +  MailMojoWidget.linkText + '</a></div>';
 
 	jQuery('form.mailmojo_form').each(function () {
 		var
@@ -37,7 +37,7 @@ jQuery(document).ready(function () {
 
 			function setMessage (msg, success) {
 				$notice.show();
-				$notice.find('strong').text(msg);
+				$notice.find('strong').html(msg);
 				if (success) {
 					$notice
 						.removeClass('error')

@@ -40,7 +40,7 @@ class MailMojoWidget extends WP_Widget {
 			);
 
 			// Add localized strings to our script
-			wp_localize_script('mailmojo', 'i18n', array(
+			wp_localize_script('mailmojo', ' MailMojoWidget', array(
 				'linkText' => __('Click to add more', 'mailmojo')
 			));
 
@@ -173,6 +173,7 @@ HTML;
 	 * @param array $instance
 	 */
 	public function widget ($args, $instance) {
+		$incname = $tags = $desc = '';
 		extract($args);
 		$mmApi = $this->mmPlugin->getApi();
 		if ($mmApi === null || empty($instance['listid'])) {
