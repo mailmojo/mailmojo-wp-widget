@@ -3,130 +3,138 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MailMojo Widget 0.1\n"
 "Report-Msgid-Bugs-To: https://github.com/eliksir/MailMojo-WP-Widget/issues\n"
-"POT-Creation-Date: 2011-07-21 12:39+0100\n"
+"POT-Creation-Date: 2011-07-22 10:00+0100\n"
 "Last-Translator: Stian Prestholdt <stian@e5r.no>\n"
 "Language-Team: Eliksir AS <dev@e5r.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: mailmojo-widget.php:28
+#: ../mailmojo-widget.php:28
 msgid "Easily integrate a mailing list signup form."
 msgstr ""
 
-#: mailmojo-widget.php:30
+#: ../mailmojo-widget.php:30
 msgid "MailMojo Signup Form"
 msgstr ""
 
-#: mailmojo-widget.php:44
+#: ../mailmojo-widget.php:44
 msgid "Click to add more"
 msgstr ""
 
-#: mailmojo-widget.php:69
+#: ../mailmojo-widget.php:69
 msgid "You need to enter your MailMojo account information on the"
 msgstr ""
 
-#: mailmojo-widget.php:70
+#: ../mailmojo-widget.php:70
 msgid "MailMojo settings page"
 msgstr ""
 
-#: mailmojo-widget.php:77
+#: ../mailmojo-widget.php:77
 msgid "Newsletter Signup"
 msgstr ""
 
-#: mailmojo-widget.php:80
+#: ../mailmojo-widget.php:80
 msgid "Interests"
 msgstr ""
 
-#: mailmojo-widget.php:82
+#: ../mailmojo-widget.php:82
 msgid "Sign me up!"
 msgstr ""
 
-#: mailmojo-widget.php:83
+#: ../mailmojo-widget.php:83
 msgid "Ta-da! You've successfully signed up. Thank you!"
 msgstr ""
 
-#: mailmojo-widget.php:137
+#: ../mailmojo-widget.php:139
 msgid "General"
 msgstr ""
 
-#: mailmojo-widget.php:138
+#: ../mailmojo-widget.php:140
 msgid "MailMojo List ID"
 msgstr ""
 
-#: mailmojo-widget.php:139
+#: ../mailmojo-widget.php:141
+msgid "To find the List ID: go to the list of your choice, in MailMojo, and look at the last part of the URL. That is the List ID. E.g: \"mailmojo.no/lists/123\", where 123 is the List ID."
+msgstr ""
+
+#: ../mailmojo-widget.php:142
 msgid "Title"
 msgstr ""
 
-#: mailmojo-widget.php:140
+#: ../mailmojo-widget.php:143
 msgid "Description Below Title"
 msgstr ""
 
-#: mailmojo-widget.php:141
+#: ../mailmojo-widget.php:144
 msgid "Include name field"
 msgstr ""
 
-#: mailmojo-widget.php:142
+#: ../mailmojo-widget.php:145
 msgid "Signup Button Text"
 msgstr ""
 
-#: mailmojo-widget.php:143
+#: ../mailmojo-widget.php:146
 msgid "Optional Tags"
 msgstr ""
 
-#: mailmojo-widget.php:144
+#: ../mailmojo-widget.php:147
 msgid "Tag Selection Label"
 msgstr ""
 
-#: mailmojo-widget.php:145
+#: ../mailmojo-widget.php:148
 msgid "Tags (comma separated)"
 msgstr ""
 
-#: mailmojo-widget.php:146
+#: ../mailmojo-widget.php:149
 msgid "Notifications"
 msgstr ""
 
-#: mailmojo-widget.php:147
+#: ../mailmojo-widget.php:150
 msgid "Success Message"
 msgstr ""
 
-#: mailmojo-widget.php:187
+#: ../mailmojo-widget.php:190
 msgid "Name"
 msgstr ""
 
-#: mailmojo-widget.php:221
+#: ../mailmojo-widget.php:224
 msgid "E-mail"
 msgstr ""
 
-#: mailmojo-widget.php:272
+#: ../mailmojo-widget.php:275
 msgid "You must provide an e-mail address."
 msgstr ""
 
-#: mailmojo-widget.php:275
+#: ../mailmojo-widget.php:278
 msgid "Invalid e-mail address."
 msgstr ""
 
-#: mailmojo-widget.php:285
+#: ../mailmojo-widget.php:288
 msgid "An unknown error occured."
 msgstr ""
 
-#: mailmojo-widget.php:289
+#: ../mailmojo-widget.php:292
 msgid "PHP curl extension not installed."
 msgstr ""
 
-#: mailmojo-plugin.php:118
+#: ../mailmojo-plugin.php:115
 msgid "MailMojo Settings"
 msgstr ""
 
-#: mailmojo-plugin.php:119
+#: ../mailmojo-plugin.php:117
 msgid "Enter the username of the MailMojo account where the mailing list you want signups to are located. After saving the changes, go to the Widgets menu in the Appearance section to configure your widget."
 msgstr ""
 
-#: mailmojo-plugin.php:142
+#: ../mailmojo-plugin.php:140
 msgid "Username"
 msgstr ""
 
-#: mailmojo-plugin.php:143
+#: ../mailmojo-plugin.php:141
 msgid "Save Changes"
+msgstr ""
+
+#: ../mailmojo-plugin.php:145
+msgid "You need to have the PHP Client URL Library (cURL) to be able to use this widget. You can read up on how to install the extension <a href=\"http://php.net/manual/en/book.curl.php\">here</a>"
 msgstr ""
 

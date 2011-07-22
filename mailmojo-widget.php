@@ -92,6 +92,8 @@ class MailMojoWidget extends WP_Widget {
 	<label for="{$this->get_field_id('listid')}">%s:</label>
 	<input class="widefat" type="text" id="{$this->get_field_id('listid')}"
 			name="{$this->get_field_name('listid')}" value="{$listid}">
+	<br/>
+	<small>%s</small>
 </p>
 <p>
 	<label for="{$this->get_field_id('title')}">%s:</label>
@@ -136,6 +138,7 @@ HTML;
 		echo sprintf($output,
 			__('General', 'mailmojo'),
 			__('MailMojo List ID', 'mailmojo'),
+			__('To find the List ID: go to the list of your choice, in MailMojo, and look at the last part of the URL. That is the List ID. E.g: "mailmojo.no/lists/123", where 123 is the List ID.', 'mailmojo'),
 			__('Title', 'mailmojo'),
 			__('Description Below Title', 'mailmojo'),
 			__('Include name field', 'mailmojo'),

@@ -25,7 +25,6 @@ class MailMojoPlugin {
 	 */
 	public $username;
 
-
 	/**
 	 * Initiates the plugin.
 	 */
@@ -112,37 +111,39 @@ class MailMojoPlugin {
 <div class="wrap">
 	<div id="icon-options-general" class="icon32"><br /></div>
 	<h2>%s</h2>
-	<p>%s</p>
-	<form action="options.php" method="post">
 HTML;
-		echo sprintf($output,
-				__('MailMojo Settings', 'mailmojo'),
-				__('Enter the username of the MailMojo account where the mailing list you want signups to are located. After saving the changes, go to the Widgets menu in the Appearance section to configure your widget.', 'mailmojo')
-		);
-		settings_fields('mailmojo_options');
-		$output = <<<HTML
-		<table class="form-table">
-			<tr valign="top">
-				<th scope="row">
-					<label for="mailmojo-username">%s</label>
-				</th>
-				<td>
-					<input name="mailmojo_options[username]" type="text"
-						id="mailmojo-username" value="{$this->username}"
-						class="regular-text code" />
-				</td>
-			</tr>
-		</table>
-		<p class="submit">
-			<input type="submit" name="Submit" class="button-primary" value="%s" />
-		</p>
-	</form>
-</div>
+		echo sprintf($output, __('MailMojo Settings', 'mailmojo'));
+		if (function_exists('curl_init')) {
+			echo '<p>' . __('Enter the username of the MailMojo account where the mailing list you want signups to are located. After saving the changes, go to the Widgets menu in the Appearance section to configure your widget.', 'mailmojo') . '</p>';
+			echo '<form action="options.php" method="post">';
+			settings_fields('mailmojo_options');
+			$output = <<<HTML
+			<table class="form-table">
+				<tr valign="top">
+					<th scope="row">
+						<label for="mailmojo-username">%s</label>
+					</th>
+					<td>
+						<input name="mailmojo_options[username]" type="text"
+							id="mailmojo-username" value="{$this->username}"
+							class="regular-text code" />
+					</td>
+				</tr>
+			</table>
+			<p class="submit">
+				<input type="submit" name="Submit" class="button-primary" value="%s" />
+			</p>
+		</form>
+	</div>
 HTML;
-		echo sprintf($output,
-				__('Username', 'mailmojo'),
-				__('Save Changes', 'mailmojo')
-		);
+			echo sprintf($output,
+					__('Username', 'mailmojo'),
+					__('Save Changes', 'mailmojo')
+			);
+		}
+		else {
+			echo '<p>' . __('You need to have the PHP Client URL Library (cURL) to be able to use this widget. You can read up on how to install the extension <a href="http://php.net/manual/en/book.curl.php">here</a>', 'mailmojo') . '</p>';
+		}
 	}
 
 	/**
