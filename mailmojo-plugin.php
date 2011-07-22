@@ -25,6 +25,7 @@ class MailMojoPlugin {
 	 */
 	public $username;
 
+
 	/**
 	 * Initiates the plugin.
 	 */
@@ -142,6 +143,13 @@ HTML;
 				__('Username', 'mailmojo'),
 				__('Save Changes', 'mailmojo')
 		);
+	}
+
+	/**
+	 * Returns the basename of the plugin. Relative to the wp-content/plugins/ directory.
+	 */
+	public function getBasename () {
+		return plugin_basename(__FILE__);
 	}
 
 	/**

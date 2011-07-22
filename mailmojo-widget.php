@@ -64,7 +64,7 @@ class MailMojoWidget extends WP_Widget {
 		if ($mmApi === null) {
 			global $blog_id;
 			$adminUrl = get_admin_url($blog_id);
-			$output = "<p>%s <a href=\"{$adminUrl}options-general.php?page=mailmojo/mailmojo-plugin.php\">%s</a>.</p>";
+			$output = "<p>%s <a href=\"{$adminUrl}options-general.php?page={$this->mmPlugin->getBasename()}\">%s</a>.</p>";
 			echo sprintf($output,
 				__('You need to enter your MailMojo account information on the', 'mailmojo'),
 				__('MailMojo settings page', 'mailmojo')
