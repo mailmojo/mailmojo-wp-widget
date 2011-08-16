@@ -138,7 +138,7 @@ HTML;
 		echo sprintf($output,
 			__('General', 'mailmojo'),
 			__('MailMojo List ID', 'mailmojo'),
-			__('To find the List ID: go to the list of your choice, in MailMojo, and look at the last part of the URL. That is the List ID. E.g: "mailmojo.no/lists/123", where 123 is the List ID.', 'mailmojo'),
+			__('To find the list ID: Go to the email list of your choice in MailMojo, and look at the last part of the URL. That is the list ID. E.g. given "mailmojo.no/lists/123", 123 is the list ID.', 'mailmojo'),
 			__('Title', 'mailmojo'),
 			__('Description Below Title', 'mailmojo'),
 			__('Include name field', 'mailmojo'),
