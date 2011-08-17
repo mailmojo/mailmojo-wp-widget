@@ -30,6 +30,11 @@ This plugin requires the PHP curl extension.
 1. Specify the ID of a mailing list in your account, and customize any settings you want
 1. Receive signups, wheee!
 
+== Screenshots ==
+
+1. Customize the widget with your choices.
+2. You will see the signup form in your sidebar.
+
 == Changelog ==
 
 = 0.2 =
