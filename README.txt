@@ -3,7 +3,7 @@ Contributors: stianpr, asteinlein
 Tags: mailmojo, newsletter, newsletters, mailing list, widget, email marketing, email
 Requires at least: 3.0.0
 Tested up to: 3.2.1
-Stable tag: trunk
+Stable tag: 0.2
 
 Adds a signup widget for a MailMojo mailing list to your WordPress site.
 
