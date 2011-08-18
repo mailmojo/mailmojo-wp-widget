@@ -31,27 +31,28 @@ class MailMojoWidget extends WP_Widget {
 
 		$this->mmPlugin = MailMojoPlugin::getInstance();
 
-		// Add custom javascript and css file
-		add_action('init', function () {
-			wp_enqueue_script(
-				'mailmojo',
-				plugins_url('js/mailmojo.js', __FILE__),
-				array('jquery'), false
-			);
-
-			// Add localized strings to our script
-			wp_localize_script('mailmojo', ' MailMojoWidget', array(
-				'linkText' => __('Click to add more', 'mailmojo')
-			));
-
-			wp_enqueue_style(
-				'mailmojo',
-				plugins_url('css/mailmojo.css', __FILE__)
-			);
-		});
+		add_action('init', array($this, 'initFiles'));
 
 		// Custom parse request for subscriptions
 		add_action('parse_request', array($this, 'subscribe'));
+	}
+
+	/**
+	 * Inits the javascript, css and localization files.
+	 */
+	public function initFiles () {
+		wp_enqueue_script(
+			'mailmojo',
+			plugins_url('js/mailmojo.js', __FILE__),
+			array('jquery'), false
+		);
+		wp_localize_script('mailmojo', ' MailMojoWidget', array(
+			'linkText' => __('Click to add more', 'mailmojo')
+		));
+		wp_enqueue_style(
+			'mailmojo',
+			plugins_url('css/mailmojo.css', __FILE__)
+		);
 	}
 
 	/**

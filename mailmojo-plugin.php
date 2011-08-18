@@ -90,9 +90,9 @@ class MailMojoPlugin {
 	 * Inits the MailMojo widget.
 	 */
 	public function initWidget () {
-		add_action('widgets_init', function () {
-			 return register_widget('MailMojoWidget');
-		});
+		add_action('widgets_init', create_function('',
+			'return register_widget("MailMojoWidget");')
+		);
 	}
 
 	/**
