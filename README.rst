@@ -35,8 +35,8 @@ Husk å aktiver innstikket etter du har installert den, ved å gå til
 «Innstikk»-menyen og trykk «Aktiver» på «MailMojo Widget».
 
 Koden som ligger på Github kan i enkelte tilfeller være nyere, så du kan
-alternativt installere innstikket manuelt. Last opp innstikket mappen
-til /wp-content/plugins/ i WordPress-installasjonen din og aktiver
+alternativt installere innstikket manuelt. Last opp innholdet i src/ til
+/wp-content/plugins/mailmojo-widget/ i WordPress-installasjonen din og aktiver
 den gjennom «Innstikk»-menyen i WordPress admin.
 
 Aktivere påmeldingsskjema
