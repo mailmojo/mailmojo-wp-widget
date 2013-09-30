@@ -1,6 +1,6 @@
 === MailMojo Widget ===
 Contributors: stianpr, asteinlein
-Tags: mailmojo, newsletter, newsletters, mailing list, widget, email marketing, email
+Tags: mailmojo, newsletter, newsletters, mailing list, signup, subscribe, widget, email, email marketing, email
 Requires at least: 3.0.0
 Tested up to: 3.2.1
 Stable tag: 0.3
