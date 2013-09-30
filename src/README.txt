@@ -41,6 +41,7 @@ This plugin requires the PHP curl extension.
 
 = 0.3.1 =
 * Tested and verified for WordPress 3.6.1
+* Fixed a bug with capitalizing first char in tags
 
 = 0.3 =
 * Widget can now be used on PHP 5.2 or greater.

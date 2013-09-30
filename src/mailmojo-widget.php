@@ -243,7 +243,7 @@ HTML;
 			$tags = explode(',', $instance['tags']);
 			$output .= "<ul class=\"field\">\n";
 			foreach ($tags as $tag) {
-				$t = ucfirst(mb_strtolower($tag));
+				$t = ucfirst(mb_strtolower(trim($tag)));
 				$output .= <<<HTML
 <li>
 	<label>
