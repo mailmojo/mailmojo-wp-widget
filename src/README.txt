@@ -3,7 +3,7 @@ Contributors: stianpr, asteinlein
 Tags: mailmojo, newsletter, newsletters, mailing list, signup, subscribe, widget, email, email marketing, email
 Requires at least: 3.0.0
 Tested up to: 3.6.1
-Stable tag: 0.3
+Stable tag: 0.3.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,6 +38,9 @@ This plugin requires the PHP curl extension.
 2. You will see the signup form in your sidebar.
 
 == Changelog ==
+
+= 0.3.1 =
+* Tested and verified for WordPress 3.6.1
 
 = 0.3 =
 * Widget can now be used on PHP 5.2 or greater.
