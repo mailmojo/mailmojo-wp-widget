@@ -3,7 +3,7 @@ Contributors: stianpr, asteinlein
 Tags: mailmojo, newsletter, newsletters, mailing list, signup, subscribe, widget, email, email marketing, email
 Requires at least: 3.0.0
 Tested up to: 3.6.1
-Stable tag: 0.3.1
+Stable tag: 0.4
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,7 +39,7 @@ This plugin requires the PHP curl extension.
 
 == Changelog ==
 
-= 0.3.1 =
+= 0.4 =
 * Tested and verified for WordPress 3.6.1
 * Fixed a bug with capitalizing first char in tags
 
