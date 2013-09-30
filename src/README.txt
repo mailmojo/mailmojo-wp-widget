@@ -4,6 +4,8 @@ Tags: mailmojo, newsletter, newsletters, mailing list, signup, subscribe, widget
 Requires at least: 3.0.0
 Tested up to: 3.2.1
 Stable tag: 0.3
+License: GPLv2
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Adds a signup widget for a MailMojo mailing list to your WordPress site.
 

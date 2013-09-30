@@ -9,7 +9,7 @@ Version: 0.3
 */
 
 /*
- * Copyright 2011 Eliksir AS <http://e5r.no>
+ * Copyright 2013 Eliksir AS <http://e5r.no>
  * License: GPLv2 <http://www.gnu.org/licenses/gpl-2.0.html>
 
     This program is free software; you can redistribute it and/or modify

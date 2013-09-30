@@ -5,7 +5,7 @@
  * Currently supports subscribing and unsubscribing recipients for a MailMojo account.
  * Requires the PHP curl extension.
  *
- * Copyright 2011, Eliksir AS <http://e5r.no>
+ * Copyright 2013, Eliksir AS <http://e5r.no>
  */
 class MailMojoApi {
 	private $username;
