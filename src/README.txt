@@ -2,7 +2,7 @@
 Contributors: stianpr, asteinlein
 Tags: mailmojo, newsletter, newsletters, mailing list, signup, subscribe, widget, email, email marketing, email
 Requires at least: 3.0.0
-Tested up to: 3.6.1
+Tested up to: 3.8.1
 Stable tag: 0.4
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
