@@ -5,7 +5,7 @@
  * Currently supports subscribing and unsubscribing recipients for a MailMojo account.
  * Requires the PHP curl extension.
  *
- * Copyright 2013, Eliksir AS <http://e5r.no>
+ * Copyright 2014, Eliksir AS <http://e5r.no>
  */
 class MailMojoApi {
 	private $username;
@@ -118,14 +118,19 @@ class MailMojoApi {
 	private function execute ($target, $data) {
 		$request = curl_init($this->getActionUrl($target));
 		curl_setopt($request, CURLOPT_RETURNTRANSFER, true); // Avoids output of return value
+		curl_setopt($request, CURLOPT_FOLLOWLOCATION, true);
 		curl_setopt($request, CURLOPT_POST, true);
-		//curl_setopt($request, CURLOPT_FOLLOWLOCATION, true);
-		//curl_setopt($request, CURLOPT_MAXREDIRS, 1);
 		curl_setopt($request, CURLOPT_POSTFIELDS, $data);
+		curl_setopt($request, CURLOPT_FAILONERROR, true);
 
-		$success = curl_exec($request);
+		$response = curl_exec($request);
+		$error = curl_error($request);
 		curl_close($request);
-		return $success !== false;
+
+		return array(
+			'success' => ($response !== false),
+			'error' => $error
+		);
 	}
 
 	/**
@@ -136,6 +141,6 @@ class MailMojoApi {
 	 *                       MailMojo account.
 	 */
 	private function getActionUrl ($target) {
-		return "http://{$this->username}.mailmojo.no/{$target}";
+		return "https://{$this->username}.mailmojo.no/{$target}";
 	}
 }

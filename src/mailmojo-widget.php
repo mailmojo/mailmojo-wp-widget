@@ -282,16 +282,18 @@ HTML;
 			else {
 				try {
 					$mmApi = $this->mmPlugin->getApi();
-					if ($mmApi->subscribe($listid, $email, $name, $tags)) {
+					$response = $mmApi->subscribe($listid, $email, $name, $tags);
+					if ($response['success']) {
 						$result['success'] = true;
 						$result['msg'] = $this->getSuccessMsg();
 					}
 					else {
-						$result['msg'] = __('An unknown error occured.', 'mailmojo');
+						$result['msg'] = __('An unknown error occured.', 'mailmojo') .
+								" {$response['error']}";
 					}
 				}
 				catch (Exception $e) {
-					$result['msg'] = __('PHP curl extension not installed.', 'mailmojo');
+					$result['msg'] = $e->getMessage();
 				}
 			}
 			header('Content-Type: application/json');
