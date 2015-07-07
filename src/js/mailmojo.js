@@ -29,7 +29,9 @@ jQuery(document).ready(function () {
 			$notice = $container.find('.notice');
 
 		jQuery(this).submit(function (e) {
-			var $this = jQuery(this);
+			var
+				$this = jQuery(this),
+				url = window.location.toString();
 
 			e.preventDefault();
 
@@ -55,7 +57,7 @@ jQuery(document).ready(function () {
 				}
 			}
 
-			jQuery.post('/', $this.serializeArray(), function (data, resStatus) {
+			jQuery.post(url, $this.serializeArray(), function (data, resStatus) {
 				if (resStatus == 'success') {
 					$loader.hide();
 					if (data.success) {
