@@ -199,7 +199,7 @@ HTML;
 
 		// Description
 		if (!empty($instance['desc'])) {
-			$desc = "<h2>{$instance['desc']}</h2>";
+			$desc = "<p>{$instance['desc']}</p>";
 		}
 
 		// The main output of the widget
