@@ -44,7 +44,7 @@ class MailMojoPlugin {
 	/**
 	 * Return the one and only singleton instance of this class.
 	 */
-	public function getInstance () {
+	public static function getInstance () {
 		if (empty(self::$instance)) {
 			self::$instance = new MailMojoPlugin();
 		}
