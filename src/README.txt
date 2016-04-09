@@ -2,8 +2,8 @@
 Contributors: stianpr, asteinlein
 Tags: mailmojo, newsletter, newsletters, mailing list, signup, subscribe, widget, email, email marketing, email
 Requires at least: 3.0.0
-Tested up to: 4.2.2
-Stable tag: 0.5
+Tested up to: 4.4.2
+Stable tag: 0.6
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,10 @@ This plugin requires the PHP curl extension.
 
 == Changelog ==
 
+= 0.6 =
+* Support WordPress not being hosted on root of domain
+* Use paragraph HTML element for description in widget output
+
 = 0.5 =
 * Improve error handling
 
@@ -67,4 +71,3 @@ following languages are included:
 
 If you're interested in doing a translation, please make a pull request
 on <a href="https://github.com/eliksir/mailmojo-wp-widget">Github</a>.
-
