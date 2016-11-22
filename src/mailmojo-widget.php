@@ -1,5 +1,5 @@
 <?php
-/*  Copyright 2013  Eliksir AS  (email : post@e5r.no)
+/*  Copyright Eliksir AS  (email : post@e5r.no)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as
@@ -30,25 +30,13 @@ class MailMojoWidget extends WP_Widget {
 		parent::__construct('mailmojo', __('MailMojo Signup Form', 'mailmojo'), $options);
 
 		$this->mmPlugin = MailMojoPlugin::getInstance();
-
 		add_action('init', array($this, 'initFiles'));
-
-		// Custom parse request for subscriptions
-		add_action('parse_request', array($this, 'subscribe'));
 	}
 
 	/**
 	 * Inits the javascript, css and localization files.
 	 */
 	public function initFiles () {
-		wp_enqueue_script(
-			'mailmojo',
-			plugins_url('js/mailmojo.js', __FILE__),
-			array('jquery'), false
-		);
-		wp_localize_script('mailmojo', ' MailMojoWidget', array(
-			'linkText' => __('Click to add more', 'mailmojo')
-		));
 		wp_enqueue_style(
 			'mailmojo',
 			plugins_url('css/mailmojo.css', __FILE__)
@@ -61,15 +49,13 @@ class MailMojoWidget extends WP_Widget {
 	 * @param array $instance
 	 */
 	public function form ($instance) {
-		$mmApi = $this->mmPlugin->getApi();
-		if ($mmApi === null) {
+		if (empty($this->mmPlugin->username)) {
 			global $blog_id;
 			$adminUrl = get_admin_url($blog_id);
-			$output = "<p>%s <a href=\"{$adminUrl}options-general.php?page={$this->mmPlugin->getBasename()}\">%s</a>.</p>";
-			echo sprintf($output,
-				__('You need to enter your MailMojo account information on the', 'mailmojo'),
-				__('MailMojo settings page', 'mailmojo')
-			);
+			$url = "{$adminUrl}options-general.php?page={$this->mmPlugin->getBasename()}";
+			echo '<p>' . sprintf(
+				__('You need to enter your MailMojo account information on the <a href="%s">MailMojo settings page</a>', 'mailmojo'),
+				$url) . '</p>';
 			return;
 		}
 
@@ -81,7 +67,6 @@ class MailMojoWidget extends WP_Widget {
 			'tagdesc' => __('Interests', 'mailmojo'),
 			'tags' => '',
 			'buttontext' => __('Sign me up!', 'mailmojo'),
-			'successmsg' => __('Ta-da! You\'ve successfully signed up. Thank you!', 'mailmojo')
 		);
 		$vars = wp_parse_args($instance, $defaults);
 		extract($vars);
@@ -129,12 +114,6 @@ class MailMojoWidget extends WP_Widget {
 	<textarea class="widefat" id="{$this->get_field_id('tags')}"
 			name="{$this->get_field_name('tags')}">{$tags}</textarea>
 </p>
-<h3>%s</h3>
-<p>
-	<label for="{$this->get_field_id('successmsg')}">%s:</label>
-	<textarea class="widefat" id="{$this->get_field_id('successmsg')}"
-			name="{$this->get_field_name('successmsg')}">{$successmsg}</textarea>
-</p>
 HTML;
 		echo sprintf($output,
 			__('General', 'mailmojo'),
@@ -146,9 +125,7 @@ HTML;
 			__('Signup Button Text', 'mailmojo'),
 			__('Optional Tags', 'mailmojo'),
 			__('Tag Selection Label', 'mailmojo'),
-			__('Tags (comma separated)', 'mailmojo'),
-			__('Notifications', 'mailmojo'),
-			__('Success Message', 'mailmojo')
+			__('Tags (comma separated)', 'mailmojo')
 		);
 	}
 
@@ -176,28 +153,28 @@ HTML;
 	public function widget ($args, $instance) {
 		$incname = $tags = $desc = '';
 		extract($args);
-		$mmApi = $this->mmPlugin->getApi();
-		if ($mmApi === null || empty($instance['listid'])) {
+
+		if (empty($this->mmPlugin->username) || empty($instance['listid'])) {
 			return '';
 		}
 
 		// Include name input field
 		if ($instance['incname']) {
 			$incname = <<<HTML
-<div class="field">
-	<label for="mailmojo_name">%s:</label>
-	<input class="text" type="text" id="mailmojo_name" name="mailmojo_name">
-</div>
+<p class="field">
+	<label for="mailmojo_{$this->number}_name">%s:</label>
+	<input class="text" type="text" id="mailmojo_{$this->number}_name" name="name">
+</p>
 HTML;
 			$incname = sprintf($incname, __('Name', 'mailmojo'));
 		}
 
-		// Checkboxes for tags
+		$tags = '';
 		if (!empty($instance['tags'])) {
 			$tags = $this->getHtmlForTags($instance);
 		}
 
-		// Description
+		$desc = '';
 		if (!empty($instance['desc'])) {
 			$desc = "<p>{$instance['desc']}</p>";
 		}
@@ -207,25 +184,32 @@ HTML;
 {$before_widget}
 	{$before_title}{$instance['title']}{$after_title}
 	$desc
-	<form method="post" id="mailmojo_form_{$this->number}" class="mailmojo_form">
-		<div class="field">
-			<label for="mailmojo_email">%s:</label>
-			<input class="text" type="text" id="mailmojo_email" name="mailmojo_email">
-		</div>
+	<form method="post" action="{$this->getSubscribeUrl($instance['listid'])}"
+			id="mailmojo_{$this->number}_form"
+			class="mailmojo_form">
+		<p class="field">
+			<label for="mailmojo_{$this->number}_email">%s:</label>
+			<input class="text" type="text" id="mailmojo_{$this->number}_email" name="email">
+		</p>
 		$incname
 		$tags
-		<div class="submit">
-			<input type="hidden" name="mailmojo_listid" value="{$instance['listid']}">
-			<input class="submit" type="submit" name="mailmojo_subscribe" value="{$instance['buttontext']}">
-			<img class="loader" src="%s" alt="loading..." height="16" width="16">
-		</div>
+		<p class="submit">
+			<input class="submit" type="submit" value="{$instance['buttontext']}">
+		</p>
 	</form>
 {$after_widget}
 HTML;
-		echo sprintf($output,
-			__('E-mail', 'mailmojo'),
-			plugins_url('img/loader.gif', __FILE__)
-		);
+		echo sprintf($output, __('E-mail', 'mailmojo'));
+	}
+
+	/**
+	 * Returns URL to MailMojo subscription endpoint for the given list.
+	 *
+	 * @param $listid
+	 * @return string
+	 */
+	private function getSubscribeUrl ($listid) {
+		return "https://{$this->mmPlugin->username}.mailmojo.no/{$listid}/s";
 	}
 
 	/**
@@ -238,7 +222,7 @@ HTML;
 		$output = '';
 		if (!empty($instance['tags'])) {
 			if (!empty($instance['tagdesc'])) {
-				$output .= "<h3>{$instance['tagdesc']}:</h3>\n";
+				$output .= "<p>{$instance['tagdesc']}:</p>\n";
 			}
 			$tags = explode(',', $instance['tags']);
 			$output .= "<ul class=\"field\">\n";
@@ -247,7 +231,7 @@ HTML;
 				$output .= <<<HTML
 <li>
 	<label>
-		<input type="checkbox" name="mailmojo_tags[]" value="{$tag}" />
+		<input type="checkbox" name="tags[]" value="{$tag}" />
 		{$t}
 	</label>
 </li>
@@ -256,59 +240,5 @@ HTML;
 			$output .= "</ul>\n";
 		}
 		return $output;
-	}
-
-	/**
-	 * Processes the ajax request from the MailMojo widget. Subcribes
-	 * the contact and returns correct response message and status code.
-	 *
-	 * TODO: What about none javascript users?
-	 */
-	public function subscribe () {
-		if (!empty($_POST['mailmojo_listid'])) {
-			$listid = $_POST['mailmojo_listid'];
-			$email = !empty($_POST['mailmojo_email']) ? $_POST['mailmojo_email'] : '';
-			$name = !empty($_POST['mailmojo_name']) ? $_POST['mailmojo_name'] : '';
-			$tags = !empty($_POST['mailmojo_tags']) ? implode(',', $_POST['mailmojo_tags']) : '';
-
-			$result = array('msg' => '', 'success' => false);
-
-			if (empty($email)) {
-				$result['msg'] = __('You must provide an e-mail address.', 'mailmojo');
-			}
-			else if (!is_email($email)) {
-				$result['msg'] = __('Invalid e-mail address.', 'mailmojo');
-			}
-			else {
-				try {
-					$mmApi = $this->mmPlugin->getApi();
-					$response = $mmApi->subscribe($listid, $email, $name, $tags);
-					if ($response['success']) {
-						$result['success'] = true;
-						$result['msg'] = $this->getSuccessMsg();
-					}
-					else {
-						$result['msg'] = __('An unknown error occured.', 'mailmojo') .
-								" {$response['error']}";
-					}
-				}
-				catch (Exception $e) {
-					$result['msg'] = $e->getMessage();
-				}
-			}
-			header('Content-Type: application/json');
-			exit(json_encode($result));
-		}
-	}
-
-	/**
-	 * Return the widget option for successmsg
-	 *
-	 * @return string
-	 */
-	public function getSuccessMsg () {
-		$options = get_option($this->option_name);
-		$number = $this->number;
-		return $options[$number]['successmsg'];
 	}
 }

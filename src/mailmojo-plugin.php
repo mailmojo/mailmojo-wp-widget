@@ -1,5 +1,5 @@
 <?php
-/*  Copyright 2013  Eliksir AS  (email : post@e5r.no)
+/*  Copyright Eliksir AS  (email : post@e5r.no)
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License, version 2, as
@@ -161,17 +161,5 @@ HTML;
 	 */
 	public function getOptions () {
 		return get_option('mailmojo_options');
-	}
-
-	/**
-	 * Returns reference to MailMojoApi. Used in the widget.
-	 *
-	 * @return MailMojoApi
-	 */
-	public function getApi () {
-		if (!empty($this->username)) {
-			return new MailMojoApi($this->username);
-		}
-		return null;
 	}
 }

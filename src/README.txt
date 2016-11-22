@@ -2,8 +2,8 @@
 Contributors: stianpr, asteinlein
 Tags: mailmojo, newsletter, newsletters, mailing list, signup, subscribe, widget, email, email marketing, email
 Requires at least: 3.0.0
-Tested up to: 4.4.2
-Stable tag: 0.6
+Tested up to: 4.6.1
+Stable tag: 0.7
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,6 +38,10 @@ This plugin requires the PHP curl extension.
 2. You will see the signup form in your sidebar.
 
 == Changelog ==
+
+= 0.7 =
+* Prevent spam registrations by leveraging MailMojo's subscription endpoint
+  with reCAPTCHA.
 
 = 0.6 =
 * Support WordPress not being hosted on root of domain
