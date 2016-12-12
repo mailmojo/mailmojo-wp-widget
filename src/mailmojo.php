@@ -26,12 +26,11 @@ Version: 0.7
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-include('mailmojo-plugin.php');
-include('mailmojo-settings.php');
-include('mailmojo-widget.php');
+include_once('vendor/autoload.php');
+include_once('mailmojo-plugin.php');
+include_once('mailmojo-settings.php');
+include_once('mailmojo-widget.php');
 
-// Sets up plugin, settings and widget
 MailMojoPlugin::getInstance();
-MailMojoSettings::getInstance();
 
 register_uninstall_hook(__FILE__, array('MailMojoSettings', 'removeSettings'));

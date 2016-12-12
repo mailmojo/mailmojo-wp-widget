@@ -9,7 +9,7 @@
 <?php endif; ?>
 
 <form method="post"
-	action="<?php echo $this->getSubscribeUrl($instance['listid']) ?>"
+	action="<?php echo $instance['subscribeurl'] ?>"
 	id="mailmojo_<?php echo $this->number ?>_form"
 	class="mailmojo_form">
 

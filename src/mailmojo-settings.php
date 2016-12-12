@@ -21,6 +21,10 @@ class MailMojoSettings {
 	const MENU_SLUG = 'mailmojo-widget';
 	const MENU_TITLE = 'MailMojo';
 	const PAGE_TITLE = 'MailMojo';
+	const MM_INTEGRATIONS_URL = 'https://v2.mailmojo.no/account/integrations/wordpress/';
+
+	private $options;
+	private $plugin;
 
 	/*
 	 * The singleton instance
@@ -33,6 +37,7 @@ class MailMojoSettings {
 	public function __construct () {
 		add_action('admin_menu', array($this, 'addPluginPage'));
 		add_action('admin_init', array($this, 'pageInit'));
+
 		$this->options = get_option('mailmojo_options');
 	}
 
@@ -45,6 +50,33 @@ class MailMojoSettings {
 		}
 
 		return self::$instance;
+	}
+
+	/**
+	 * Return access token stored as an option if it exist.
+	 *
+	 * @param bool $obfuscate Obfuscate the access token.
+	 * @return string
+	 */
+	public function getAccessToken ($obfuscate = false) {
+		$token = !empty($this->options['access_token']) ? $this->options['access_token'] : '';
+
+		if ($obfuscate && !empty($token)) {
+			return '*********' . substr($token, 9);
+		}
+
+		return $token;
+	}
+
+	/**
+	 * Returns username stored as an option if it exists.
+	 *
+	 * TODO: Remove when username is not needed anymore.
+	 *
+	 * @return string
+	 */
+	public function getUsername () {
+		return !empty($this->options['username']) ? $this->options['username'] : '';
 	}
 
 	/**
@@ -72,11 +104,20 @@ class MailMojoSettings {
 
 		add_settings_section(
 			'mailmojo_settings_id',
-			'Settings',
+			'API Settings',
 			array($this, 'settingsSection'),
 			'mailmojo-settings-admin'
 		);
 
+		add_settings_field(
+			'access_token',
+			'Access Token',
+			array($this, 'accessTokenField'),
+			'mailmojo-settings-admin',
+			'mailmojo_settings_id'
+		);
+
+		// TODO: Remove when username is not needed anymore.
 		add_settings_field(
 			'username',
 			'Username',
@@ -104,29 +145,55 @@ class MailMojoSettings {
 	 * Output section for settings.
 	 */
 	public function settingsSection () {
-		print('Enter the username of your MailMojo Account.');
+		echo '<p>' . sprintf(__('To connect with your MailMojo account, you need to <a href="%s">retrieve an access token</a> from a Wordpress Client in MailMojo. This will enable the widget to retrieve the necessary data to enable signups.', 'mailmojo'),
+			MailMojoSettings::MM_INTEGRATIONS_URL) . '</p>';
+	}
+
+	/**
+	 * Output settings field for access token.
+	 */
+	public function accessTokenField () {
+		$integrationUrl = self::MM_INTEGRATIONS_URL;
+		printf(
+			'<input type="text" id="access_token" name="mailmojo_options[access_token]" ' .
+			'value="%s" placeholder="%s" class="regular-text code"><p><a href="%s">%s</a></p>',
+				esc_attr($this->getAccessToken(true)),
+			__('Paste the access token here', 'mailmojo'),
+			$integrationUrl,
+			__('Get your access token here', 'mailmojo')
+		);
 	}
 
 	/**
 	 * Output settings field for username.
+	 *
+	 * TODO: Remove when username is not needed anymore.
 	 */
 	public function usernameField () {
 		printf(
 			'<input type="text" id="username" name="mailmojo_options[username]" ' .
-			'value="%s">',
-			isset($this->options['username']) ?
-				esc_attr($this->options['username']) : ''
+			'value="%s" readonly><p><small><em>%s</em></small></p>',
+			esc_attr($this->getUsername()),
+			__('Deprecated in favor of using the MailMojo API.')
 		);
 	}
 
 	/**
 	 * Sanitize the settings field before saving it.
+	 *
+	 * Fields that have been obfuscated (contains nine stars) will not be saved
+	 * to the option field due to being incomplete.
 	 */
 	public function sanitize ($input) {
 		$new_input = array();
 
 		foreach ($input as $key => $value) {
-			$new_input[$key] = sanitize_text_field($value);
+			if (stripos($value, '*********') === False) {
+				$new_input[$key] = sanitize_text_field($value);
+			}
+			else {
+				$new_input[$key] = $this->options[$key];
+			}
 		}
 
 		return $new_input;

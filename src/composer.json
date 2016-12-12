@@ -1,0 +1,27 @@
+{
+  "name": "eliksir/mailmojo-wp-widget",
+  "description": "MailMojo WordPress Plugin",
+  "keywords": [
+    "wordpress",
+    "plugin",
+    "mailmojo",
+    "newsletter",
+    "mailing list",
+    "email"
+  ],
+  "homepage": "https://mailmojo.no",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Stian Prestholdt",
+      "email": "stian@e5r.no",
+      "homepage": "http://e5r.no"
+    }
+  ],
+  "type": "wordpress-plugin",
+  "require": {
+    "php": ">=5.3.2",
+    "composer/installers": "v1.0.6",
+    "eliksir/mailmojo-php-sdk": "0.1.0"
+  }
+}

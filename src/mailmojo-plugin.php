@@ -17,6 +17,8 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 class MailMojoPlugin {
+	private $settings;
+
 	/*
 	 * The singleton instance
 	 */
@@ -28,6 +30,12 @@ class MailMojoPlugin {
 	private function __construct () {
 		$this->initWidget();
 		$this->loadTextDomain();
+		$this->settings = MailMojoSettings::getInstance();
+
+		$accessToken = $this->settings->getAccessToken();
+		if ($accessToken) {
+			MailMojo\Configuration::getDefaultConfiguration()->setAccessToken($accessToken);
+		}
 	}
 
 	/**
@@ -42,13 +50,12 @@ class MailMojoPlugin {
 	}
 
 	/**
-	 * Return true if plugin is fully activated.
+	 * Return true if access token is present.
 	 *
 	 * @return bool
 	 */
 	public function isActive () {
-		$options = get_option('mailmojo_options');
-		return !empty($options['username']);
+		return !empty($this->settings->getAccessToken());
 	}
 
 	/**
@@ -76,16 +83,8 @@ class MailMojoPlugin {
 	public function getSettingsPageUrl () {
 		global $blog_id;
 		$adminUrl = get_admin_url($blog_id);
-		return "{$adminUrl}options-general.php?page={MailMojoSettings::MENU_SLUG}";
+		$slug = MailMojoSettings::MENU_SLUG;
+		return "{$adminUrl}options-general.php?page={$slug}";
 	}
 
-	/**
-	 * Returns username stored as an option if it exist.
-	 *
-	 * @return string
-	 */
-	public function getUsername () {
-		$options = get_option('mailmojo_options');
-		return !empty($options['username']) ? $options['username'] : '';
-	}
 }
