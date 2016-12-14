@@ -27,9 +27,9 @@ This plugin requires the PHP curl extension.
 
 1. Upload the widget directory to /wp-content/plugins/
 1. Activate the plugin through the "Plugins" menu in the WordPress admin
-1. Enter your MailMojo account username at the "Settins > MailMojo" page
+1. Enter settings for the plugin at the "Settings > MailMojo" page
 1. Drag the widget to your desired location at the "Appearance > Widgets" page
-1. Specify the ID of a mailing list in your account, and customize any settings you want
+1. Specify the mailing list in your account, and customize any settings you want
 1. Receive signups, wheee!
 
 == Screenshots ==
