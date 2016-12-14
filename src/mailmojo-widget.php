@@ -105,8 +105,10 @@ class MailMojoWidget extends WP_Widget {
 			'title' => __('Newsletter Signup', 'mailmojo'),
 			'desc' => '',
 			'incname' => false,
-			'tagdesc' => __('Interests', 'mailmojo'),
+			'tagdesc' => __('Interests:', 'mailmojo'),
+			'tagtype' => 'multiple',
 			'tags' => '',
+			'fixedtags' => '',
 			'buttontext' => __('Sign me up!', 'mailmojo'),
 		);
 

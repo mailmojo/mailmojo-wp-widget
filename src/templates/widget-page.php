@@ -34,14 +34,17 @@
 	<?php endif; ?>
 
 	<?php if (!empty($instance['tags'])) : ?>
-		<p><?php echo $instance['tagdesc'] ?>:</p>
+		<?php if (!empty($instance['tagdesc'])) : ?>
+			<p><?php echo $instance['tagdesc'] ?></p>
+		<?php endif; ?>
 		<ul class="field">
 			<?php foreach ($instance['tags'] as $tag) : ?>
 				<?php $t = ucfirst(mb_strtolower(trim($tag))); ?>
 				<li>
 					<label>
-						<input type="checkbox" name="tags[]" value="<?php echo $tag ?>" />
-						 <?php echo $t ?>
+						<input type="<?php echo $instance['tagtype'] === 'multiple' ? 'checkbox' : 'radio' ?>"
+							name="tags[]" value="<?php echo $tag ?>">
+						<?php echo $t ?>
 					</label>
 				</li>
 			<?php endforeach; ?>
@@ -49,6 +52,9 @@
 	<?php endif; ?>
 
 	<p class="submit">
+		<?php if (!empty($instance['fixedtags'])) : ?>
+			<input type="hidden" name="tagsadditional" value="<?php echo $instance['fixedtags'] ?>">
+		<?php endif; ?>
 		<input class="submit" type="submit" value="<?php echo $instance['buttontext'] ?>">
 	</p>
 </form>

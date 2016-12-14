@@ -48,15 +48,35 @@
 	</label>
 </p>
 
-<h4><?php echo __('Optional Tags', 'mailmojo') ?></h4>
+<h4>
+	<?php echo __('Selectable tags', 'mailmojo') ?>
+	<small>(<?php echo __('optional', 'mailmojo') ?>)</small>
+</h4>
 <p>
 	<label for="<?php echo $this->get_field_id('tagdesc') ?>">
-		<?php echo __('Tag Selection Label', 'mailmojo') ?>:
+		<?php echo __('Tag selection label', 'mailmojo') ?>:
 	</label>
 	<input class="widefat" type="text"
 		id="<?php echo $this->get_field_id('tagdesc') ?>"
 		name="<?php echo $this->get_field_name('tagdesc') ?>"
 		value="<?php echo $instance['tagdesc'] ?>">
+</p>
+<p>
+	<label><?php echo __('Type', 'mailmojo') ?>:</label><br/>
+	<label>
+		<input class="widefat" type="radio"
+			name="<?php echo $this->get_field_name('tagtype') ?>"
+			value="single"
+			<?php echo $instance['tagtype'] == 'single' ? 'checked': '' ?>>
+		<?php echo __('Single choice', 'mailmojo') ?>
+	</label><br/>
+	<label>
+		<input class="widefat" type="radio"
+			name="<?php echo $this->get_field_name('tagtype') ?>"
+			value="multiple"
+			<?php echo $instance['tagtype'] == 'multiple' ? 'checked': '' ?>>
+		<?php echo __('Multiple choice', 'mailmojo') ?>
+	</label>
 </p>
 <p>
 	<label for="<?php echo $this->get_field_id('tags') ?>">
@@ -65,4 +85,19 @@
 	<textarea class="widefat"
 			id="<?php echo $this->get_field_id('tags') ?>"
 			name="<?php echo $this->get_field_name('tags') ?>"><?php echo $instance['tags'] ?></textarea>
+</p>
+
+
+<h4>
+	<?php echo __('Fixed tag(s)', 'mailmojo') ?>
+	<small>(<?php echo __('optional', 'mailmojo') ?>)</small>
+</h4>
+<p><em><?php echo __('These tags will automatically be added to the subscribed contact.', 'mailmojo') ?></em></p>
+<p>
+	<label for="<?php echo $this->get_field_id('fixedtags') ?>">
+		<?php echo __('Tags (comma separated)', 'mailmojo') ?>:
+	</label>
+	<textarea class="widefat"
+			id="<?php echo $this->get_field_id('fixedtags') ?>"
+			name="<?php echo $this->get_field_name('fixedtags') ?>"><?php echo $instance['fixedtags'] ?></textarea>
 </p>
