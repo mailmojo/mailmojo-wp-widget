@@ -36,6 +36,9 @@ class MailMojoPlugin {
 		if ($accessToken) {
 			MailMojo\Configuration::getDefaultConfiguration()->setAccessToken($accessToken);
 		}
+		else {
+			add_action('admin_notices', array($this, 'displayNoticeInfo'));
+		}
 	}
 
 	/**
@@ -47,6 +50,19 @@ class MailMojoPlugin {
 		}
 
 		return self::$instance;
+	}
+
+	/**
+	 * Display a site-wide notice on missing settings for the widget.
+	 *
+	 * For users that have upgraded from v0.x to v1 the signup form will still
+	 * work but we want them to add an access token instead.
+	 */
+	public function displayNoticeInfo () {
+		echo '<br><div class="update-nag">' . sprintf(
+			__('Settings for the MailMojo widget is outdated. <a href="%s">Please update the settings now</a>.', 'mailmojo'),
+			$this->getSettingsPageUrl()
+		) . '</div>';
 	}
 
 	/**

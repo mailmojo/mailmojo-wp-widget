@@ -33,4 +33,5 @@ include_once('mailmojo-widget.php');
 
 MailMojoPlugin::getInstance();
 
+
 register_uninstall_hook(__FILE__, array('MailMojoSettings', 'removeSettings'));
