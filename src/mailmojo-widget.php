@@ -115,6 +115,11 @@ class MailMojoWidget extends WP_Widget {
 		$instance = wp_parse_args($instance, $defaults);
 		$instance['incname'] = checked($instance['incname'], true, false);
 
+		// TODO: Remove when username is not present anymore.
+		if (empty($instance['subscribeurl']) && !empty($instance['listid'])) {
+			$instance['subscribeurl'] = $this->getSubscribeUrl($instance['listid']);
+		}
+
 		include('templates/widget-admin.php');
 	}
 
@@ -141,7 +146,7 @@ class MailMojoWidget extends WP_Widget {
 	 */
 	public function widget ($args, $instance) {
 		// TODO: Change to only check subscribe url when listid is removed
-		if (empty($instance['subscribeurl']) || empty($instance['listid'])) {
+		if (empty($instance['subscribeurl']) && empty($instance['listid'])) {
 			return '';
 		}
 
@@ -166,7 +171,7 @@ class MailMojoWidget extends WP_Widget {
 	 * @return string
 	 */
 	private function getSubscribeUrl ($listid) {
-		$username = $this->plugin->getUsername();
+		$username = $this->plugin->settings->getUsername();
 		return "https://{$username}.mailmojo.no/{$listid}/s";
 	}
 }
