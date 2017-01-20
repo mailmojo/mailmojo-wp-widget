@@ -1,8 +1,8 @@
 === MailMojo Widget ===
 Contributors: stianpr, asteinlein
 Tags: mailmojo, newsletter, newsletters, mailing list, signup, subscribe, widget, email, email marketing, email
-Requires at least: 3.0.0
-Tested up to: 4.6.1
+Requires at least: 4.0
+Tested up to: 4.7.1
 Stable tag: 0.7
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
