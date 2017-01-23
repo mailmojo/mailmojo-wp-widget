@@ -3,7 +3,7 @@ Contributors: stianpr, asteinlein
 Tags: mailmojo, newsletter, newsletters, mailing list, signup, subscribe, widget, email, email marketing, email
 Requires at least: 4.0
 Tested up to: 4.7.1
-Stable tag: 0.7
+Stable tag: 1.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,6 +38,11 @@ This plugin requires the PHP curl extension.
 2. You will see the signup form in your sidebar.
 
 == Changelog ==
+
+= 1.0 =
+* Use MailMojo API to support retrieval of email lists.
+* Support single vs multiple tag selection.
+* Support fixed tags.
 
 = 0.7 =
 * Prevent spam registrations by leveraging MailMojo's subscription endpoint
