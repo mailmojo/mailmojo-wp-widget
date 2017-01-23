@@ -1,9 +1,9 @@
 # Copyright 2013 MailMojo Widget
 msgid ""
 msgstr ""
-"Project-Id-Version: MailMojo Widget 0.2\n"
+"Project-Id-Version: MailMojo Widget 1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/eliksir/MailMojo-WP-Widget/issues\n"
-"POT-Creation-Date: 2016-11-22 15:05+0100\n"
+"POT-Creation-Date: 2017-01-20 13:00+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Stian Prestholdt <stian@e5r.no>\n"
 "Language-Team: Eliksir AS <dev@e5r.no>\n"
@@ -13,154 +13,164 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.11\n"
 
-#: mailmojo-plugin.php:115
-msgid "MailMojo Settings"
-msgstr "MailMojo-innstillinger"
-
-#: mailmojo-plugin.php:117
+#: mailmojo-plugin.php:63
 msgid ""
-"Enter the username of the MailMojo account where the mailing list you want "
-"signups to are located. After saving the changes, go to the Widgets menu in "
-"the Appearance section to configure your widget."
+"Settings for the MailMojo widget is outdated. <a href=\"%s\">Please update "
+"the settings now</a>."
 msgstr ""
-"Skriv inn brukernavnet til din MailMojo-konto. Etter at du har lagret "
-"endringene går du til Widgeter-menyen under Utseende-seksjonen for å "
-"konfigurere widgeten."
+"Innstillinger for MailMojo-widgeten er utdatert. <a href=\"%s\">Vennligst "
+"oppdater innstillinger nå</a>."
 
-#: mailmojo-plugin.php:140
-msgid "Username"
-msgstr "Brukernavn"
-
-#: mailmojo-plugin.php:141
-msgid "Save Changes"
-msgstr "Lagre endringer"
-
-#: mailmojo-plugin.php:145
+#: mailmojo-settings.php:148
 msgid ""
-"You need to have the PHP Client URL Library (cURL) to be able to use this "
-"widget. You can read up on how to install the extension <a href=\"http://php."
-"net/manual/en/book.curl.php\">here</a>"
+"To connect with your MailMojo account, you need to <a href=\"%s\">retrieve "
+"an access token</a> from a Wordpress Client in MailMojo. This will enable "
+"the widget to retrieve the necessary data to enable signups."
 msgstr ""
-"Du må ha PHP Client URL Library (cURL) installert for å ta i bruk denne "
-"widgeten. Du kan lese alt om denne utvidelsen <a href=\"http://php.net/"
-"manual/en/book.curl.php\">her</a>"
+"For å koble til din MailMojo-konto må du <a href=\"%s\">hente din "
+"tilgangsnøkkel</a> fra WordPress-integrasjonen i MailMojo. Denne vil gjøre "
+"det mulig å hente ut nødvending informasjon for å støtte påmeldinger."
 
-#: mailmojo-widget.php:28
+#: mailmojo-settings.php:161
+msgid "Paste the access token here"
+msgstr "Lim inn tilgangsnøkkelen her"
+
+#: mailmojo-settings.php:163
+msgid "Get your access token here"
+msgstr "Få din tilgangsnøkkel her"
+
+#: mailmojo-settings.php:177
+msgid "Deprecated in favor of using the MailMojo API."
+msgstr "Utdatert til fordel for å bruke MailMojo API"
+
+#: mailmojo-widget.php:35
 msgid "Easily integrate a mailing list signup form."
 msgstr "Et påmeldingsskjema for ditt nyhetsbrev."
 
-#: mailmojo-widget.php:30
+#: mailmojo-widget.php:37
 msgid "MailMojo Signup Form"
 msgstr "MailMojo Påmeldingsskjema"
 
-#: mailmojo-widget.php:57
-#, php-format
+#: mailmojo-widget.php:79
 msgid ""
 "You need to enter your MailMojo account information on the <a href=\"%s"
-"\">MailMojo settings page</a>"
+"\">MailMojo settings page</a> first."
 msgstr ""
-"Du må fylle ut din MailMojo-kontoinformasjon under <a href=\"%s"
-"\">innstillinger for MailMojo</a>"
+"Du må legge inn informasjon for din MailMojo-konto under <a href=\"%s"
+"\">MailMojo-innstillinger</a> først."
 
-#: mailmojo-widget.php:64
+#: mailmojo-widget.php:91
+msgid ""
+"Your email lists could not be retrieved. Please go to <a href=\"%s"
+"\">MailMojo settings page</a> and make sure the access token is correct."
+msgstr ""
+"Dine e-postlister er ikke tilgjengelig. Vennligst gå til <a href=\"%s"
+"\">MailMojo-innstillinger</a> og sørg for at tilgangsnøkkelen er riktig."
+
+#: mailmojo-widget.php:97
+msgid ""
+"You don't have any email lists in MailMojo. Please go to MailMojo and add "
+"one. Refresh this page when done."
+msgstr ""
+"Du har ingen e-postlister i MailMojo. Vennligst gå til MailMojo og legg til "
+"dette. Oppdater denne siden når det er gjort."
+
+#: mailmojo-widget.php:105
 msgid "Newsletter Signup"
 msgstr "Nyhetsbrev"
 
-#: mailmojo-widget.php:67
-msgid "Interests"
-msgstr "Interesser"
+#: mailmojo-widget.php:108
+msgid "Interests:"
+msgstr "Interesser:"
 
-#: mailmojo-widget.php:69
+#: mailmojo-widget.php:112
 msgid "Sign me up!"
 msgstr "Meld meg på!"
 
-#: mailmojo-widget.php:119
-msgid "General"
-msgstr "Generelt"
+#: templates/widget-admin.php:3
+msgid "Subscribe to Email List"
+msgstr "Påmeld til e-postlisten"
 
-#: mailmojo-widget.php:120
-msgid "MailMojo List ID"
-msgstr "MailMojo liste-ID"
-
-#: mailmojo-widget.php:121
-msgid ""
-"To find the list ID: Go to the email list of your choice in MailMojo, and "
-"look at the last part of the URL. That is the list ID. E.g. given \"mailmojo."
-"no/lists/123\", 123 is the list ID."
-msgstr ""
-"For å finne liste-IDen kan du gå til en av dine e-postlister i MailMojo, og "
-"se på den siste delen av URLen. Dette tallet er liste-IDen. F.eks. med "
-"«mailmojo.no/lists/123» er 123 liste-IDen. "
-
-#: mailmojo-widget.php:122
+#: templates/widget-admin.php:17
 msgid "Title"
 msgstr "Tittel"
 
-#: mailmojo-widget.php:123
+#: templates/widget-admin.php:26
 msgid "Description Below Title"
 msgstr "Beskrivelse under tittelen"
 
-#: mailmojo-widget.php:124
-msgid "Include name field"
-msgstr "Inkluder navnfelt"
-
-#: mailmojo-widget.php:125
+#: templates/widget-admin.php:34
 msgid "Signup Button Text"
 msgstr "Påmeldingsknapp"
 
-#: mailmojo-widget.php:126
-msgid "Optional Tags"
-msgstr "Valgfrie merkelapper"
+#: templates/widget-admin.php:47
+msgid "Include name field"
+msgstr "Inkluder felt for navn"
 
-#: mailmojo-widget.php:127
-msgid "Tag Selection Label"
-msgstr "Overskrift for merkelapper"
+#: templates/widget-admin.php:52
+msgid "Selectable tags"
+msgstr "Merkelapper som kan velges"
 
-#: mailmojo-widget.php:128
+#: templates/widget-admin.php:53 templates/widget-admin.php:93
+msgid "optional"
+msgstr "valgfritt"
+
+#: templates/widget-admin.php:57
+msgid "Tag selection label"
+msgstr "Overskrift for valgfrie merkelapper"
+
+#: templates/widget-admin.php:65
+msgid "Selection options"
+msgstr "Valgmuligheter"
+
+#: templates/widget-admin.php:71
+msgid "Single choice"
+msgstr "Valg av én (nedtrekksmeny)"
+
+#: templates/widget-admin.php:78
+msgid "Multiple choice"
+msgstr "Valg av flere (avkrysningsbokser)"
+
+#: templates/widget-admin.php:83 templates/widget-admin.php:98
 msgid "Tags (comma separated)"
 msgstr "Merkelapper (kommaseparert)"
 
-#: mailmojo-widget.php:169
-msgid "Name"
-msgstr "Navn"
+#: templates/widget-admin.php:92
+msgid "Fixed tag(s)"
+msgstr "Faste merkelapper"
 
-#: mailmojo-widget.php:202
+#: templates/widget-admin.php:95
+msgid "These tags will automatically be added to the subscribed contact."
+msgstr ""
+"Disse merkelappene vil automatisk bli lagt til kontakten som melder seg på."
+
+#: templates/widget-page.php:18
 msgid "E-mail"
 msgstr "E-postadresse"
 
-#~ msgid ""
-#~ "You need to enter your MailMojo account information on the MailMojo "
-#~ "settings page"
-#~ msgstr ""
-#~ "Du må fylle ut din MailMojo-kontoinformasjon under innstillinger for "
-#~ "MailMojo"
+#: templates/widget-page.php:28
+msgid "Name"
+msgstr "Navn"
 
-#~ msgid "Click to add more"
-#~ msgstr "Legg til flere"
+#. Plugin Name of the plugin/theme
+msgid "MailMojo Widget"
+msgstr ""
 
-#~ msgid "You need to enter your MailMojo account information on the"
-#~ msgstr "Du må fylle ut din MailMojo-kontoinformasjon under"
+#. Plugin URI of the plugin/theme
+msgid "http://github.com/eliksir/MailMojo-WP-Widget"
+msgstr ""
 
-#~ msgid "MailMojo settings page"
-#~ msgstr "innstillinger for MailMojo"
+#. Description of the plugin/theme
+msgid ""
+"Adds a signup widget for a MailMojo mailing list to your WordPress site."
+msgstr ""
+"Legger til påmeldingsskjema for nyhetsbrev fra MailMojo til ditt WordPress-"
+"nettsted."
 
-#~ msgid "Ta-da! You've successfully signed up. Thank you!"
-#~ msgstr "Ta-da! Du er nå meldt på nyhetsbrevet. Tusen takk!"
+#. Author of the plugin/theme
+msgid "Eliksir AS"
+msgstr ""
 
-#~ msgid "Notifications"
-#~ msgstr "Meldinger"
-
-#~ msgid "Success Message"
-#~ msgstr "Vellykket påmelding"
-
-#~ msgid "You must provide an e-mail address."
-#~ msgstr "Du må fylle ut en e-postadresse."
-
-#~ msgid "Invalid e-mail address."
-#~ msgstr "Ugyldig e-postadresse."
-
-#~ msgid "An unknown error occured."
-#~ msgstr "Det har oppstått en ukjent feil."
-
-#~ msgid "PHP curl extension not installed."
-#~ msgstr "PHP curl utvidelsen er ikke installert."
+#. Author URI of the plugin/theme
+msgid "http://e5r.no"
+msgstr ""

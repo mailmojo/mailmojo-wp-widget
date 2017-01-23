@@ -62,7 +62,15 @@
 		value="<?php echo $instance['tagdesc'] ?>">
 </p>
 <p>
-	<label><?php echo __('Type', 'mailmojo') ?>:</label><br/>
+	<label for="<?php echo $this->get_field_id('tags') ?>">
+		<?php echo __('Tags (comma separated)', 'mailmojo') ?>:
+	</label>
+	<textarea class="widefat"
+			id="<?php echo $this->get_field_id('tags') ?>"
+			name="<?php echo $this->get_field_name('tags') ?>"><?php echo $instance['tags'] ?></textarea>
+</p>
+<p>
+	<label><?php echo __('Selection options', 'mailmojo') ?>:</label><br/>
 	<label>
 		<input class="widefat" type="radio"
 			name="<?php echo $this->get_field_name('tagtype') ?>"
@@ -77,14 +85,6 @@
 			<?php echo $instance['tagtype'] == 'multiple' ? 'checked': '' ?>>
 		<?php echo __('Multiple choice', 'mailmojo') ?>
 	</label>
-</p>
-<p>
-	<label for="<?php echo $this->get_field_id('tags') ?>">
-		<?php echo __('Tags (comma separated)', 'mailmojo') ?>:
-	</label>
-	<textarea class="widefat"
-			id="<?php echo $this->get_field_id('tags') ?>"
-			name="<?php echo $this->get_field_name('tags') ?>"><?php echo $instance['tags'] ?></textarea>
 </p>
 
 
