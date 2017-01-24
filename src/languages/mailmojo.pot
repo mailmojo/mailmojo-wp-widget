@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MailMojo Widget 1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/eliksir/MailMojo-WP-Widget/issues\n"
-"POT-Creation-Date: 2017-01-24 12:48:22+00:00\n"
+"POT-Creation-Date: 2017-01-24 13:22:06+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -77,6 +77,10 @@ msgstr ""
 
 #: mailmojo-widget.php:112
 msgid "Sign me up!"
+msgstr ""
+
+#: mailmojo.php:55
+msgid "The MailMojo Widget plugin requires PHP 5.4 or newer."
 msgstr ""
 
 #: templates/widget-admin.php:3

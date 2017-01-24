@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MailMojo Widget 1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/eliksir/MailMojo-WP-Widget/issues\n"
-"POT-Creation-Date: 2017-01-24 13:51+0100\n"
+"POT-Creation-Date: 2017-01-24 14:23+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Frode Danielsen <frode@e5r.no>\n"
 "Language-Team: Eliksir AS <dev@e5r.no>\n"
@@ -90,6 +90,10 @@ msgstr "Interesser:"
 #: mailmojo-widget.php:112
 msgid "Sign me up!"
 msgstr "Meld meg på!"
+
+#: mailmojo.php:55
+msgid "The MailMojo Widget plugin requires PHP 5.4 or newer."
+msgstr "MailMojo Widget-utvidelsen krever PHP 5.4 eller nyere."
 
 #: templates/widget-admin.php:3
 msgid "Subscribe to Email List"

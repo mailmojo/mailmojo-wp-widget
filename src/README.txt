@@ -40,6 +40,7 @@ This plugin requires the PHP curl extension.
 == Changelog ==
 
 = 1.0 =
+* Important: Requires PHP 5.4 or newer.
 * Use MailMojo API to support retrieval of email lists.
 * Support single vs multiple tag selection.
 * Support fixed tags.
