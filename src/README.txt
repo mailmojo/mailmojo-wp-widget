@@ -34,8 +34,8 @@ This plugin requires the PHP curl extension.
 
 == Screenshots ==
 
-1. Customize the widget with your choices.
-2. You will see the signup form in your sidebar.
+1. The signup form in your sidebar.
+2. Customize the widget with your choices.
 
 == Changelog ==
 
