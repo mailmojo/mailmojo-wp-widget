@@ -5,7 +5,7 @@ Plugin URI: http://github.com/eliksir/MailMojo-WP-Widget
 Description: Adds a signup widget for a MailMojo mailing list to your WordPress site.
 Author: Eliksir AS
 Author URI: http://e5r.no
-Version: 1.0
+Version: 1.0.0
 */
 
 /*
@@ -35,7 +35,7 @@ if (version_compare(PHP_VERSION, '5.4.0') < 0) {
 		if (current_user_can('activate_plugins') &&
 				is_plugin_active(plugin_basename(__FILE__))) {
 			deactivate_plugins(plugin_basename(__FILE__));
-			
+
 			// Hide the default "Plugin activated" notice
 			if (isset($_GET['activate'])) {
 				unset($_GET['activate']);
