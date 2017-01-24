@@ -28,6 +28,7 @@ class MailMojoPlugin {
 	 * Initiates the plugin.
 	 */
 	private function __construct () {
+		$this->initAdmin();
 		$this->initWidget();
 		$this->loadTextDomain();
 		$this->settings = MailMojoSettings::getInstance();
@@ -75,6 +76,18 @@ class MailMojoPlugin {
 	}
 
 	/**
+	 * Initializes customizations in the WordPress admin.
+	 *
+	 * Currently only used to add a link to the settings page from the
+	 * page listing installed plugins.
+	 */
+	public function initAdmin () {
+		$entrypoint = dirname(__FILE__) . '/mailmojo.php';
+		add_filter('plugin_action_links_' . plugin_basename($entrypoint),
+			array($this, 'addSettingsLink'));
+	}
+
+	/**
 	 * Inits the MailMojo widget.
 	 */
 	public function initWidget () {
@@ -89,6 +102,23 @@ class MailMojoPlugin {
 	public function loadTextDomain () {
 		$path = basename(dirname( __FILE__ )) . '/languages';
 		load_plugin_textdomain('mailmojo', false, $path);
+	}
+
+	/**
+	 * Add link to plugin settings to the plugin action links.
+	 *
+	 * @param array $links Already added links.
+	 * @return array List of links with our settings link prepended.
+	 */
+	public function addSettingsLink ($links) {
+		$url = $this->getSettingsPageUrl();
+		$text = __('Settings', 'mailmojo');
+
+		$custom_links = array(
+			sprintf('<a href="%s">%s</a>', esc_url($url), $text)
+		);
+
+		return array_merge($custom_links, $links);
 	}
 
 	/**

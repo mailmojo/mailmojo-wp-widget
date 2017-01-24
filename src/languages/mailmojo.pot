@@ -4,18 +4,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MailMojo Widget 1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/eliksir/MailMojo-WP-Widget/issues\n"
-"POT-Creation-Date: 2017-01-20 11:59:16+00:00\n"
+"POT-Creation-Date: 2017-01-24 12:48:22+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Stian Prestholdt <stian@e5r.no>\n"
+"Last-Translator: Frode Danielsen <frode@e5r.no>\n"
 "Language-Team: Eliksir AS <dev@e5r.no>\n"
 
-#: mailmojo-plugin.php:63
+#: mailmojo-plugin.php:64
 msgid ""
 "Settings for the MailMojo widget is outdated. <a href=\"%s\">Please update "
 "the settings now</a>."
+msgstr ""
+
+#: mailmojo-plugin.php:115
+msgid "Settings"
 msgstr ""
 
 #: mailmojo-settings.php:148
@@ -107,20 +111,20 @@ msgstr ""
 msgid "Tag selection label"
 msgstr ""
 
-#: templates/widget-admin.php:65
+#: templates/widget-admin.php:66 templates/widget-admin.php:98
+msgid "Tags (comma separated)"
+msgstr ""
+
+#: templates/widget-admin.php:73
 msgid "Selection options"
 msgstr ""
 
-#: templates/widget-admin.php:71
+#: templates/widget-admin.php:79
 msgid "Single choice"
 msgstr ""
 
-#: templates/widget-admin.php:78
+#: templates/widget-admin.php:86
 msgid "Multiple choice"
-msgstr ""
-
-#: templates/widget-admin.php:83 templates/widget-admin.php:98
-msgid "Tags (comma separated)"
 msgstr ""
 
 #: templates/widget-admin.php:92

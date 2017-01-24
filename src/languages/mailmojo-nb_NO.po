@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: MailMojo Widget 1.0\n"
 "Report-Msgid-Bugs-To: https://github.com/eliksir/MailMojo-WP-Widget/issues\n"
-"POT-Creation-Date: 2017-01-20 13:00+0100\n"
+"POT-Creation-Date: 2017-01-24 13:51+0100\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Stian Prestholdt <stian@e5r.no>\n"
+"Last-Translator: Frode Danielsen <frode@e5r.no>\n"
 "Language-Team: Eliksir AS <dev@e5r.no>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
@@ -13,13 +13,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.11\n"
 
-#: mailmojo-plugin.php:63
+#: mailmojo-plugin.php:64
 msgid ""
 "Settings for the MailMojo widget is outdated. <a href=\"%s\">Please update "
 "the settings now</a>."
 msgstr ""
 "Innstillinger for MailMojo-widgeten er utdatert. <a href=\"%s\">Vennligst "
 "oppdater innstillinger nå</a>."
+
+#: mailmojo-plugin.php:115
+msgid "Settings"
+msgstr "Innstillinger"
 
 #: mailmojo-settings.php:148
 msgid ""
@@ -119,21 +123,21 @@ msgstr "valgfritt"
 msgid "Tag selection label"
 msgstr "Overskrift for valgfrie merkelapper"
 
-#: templates/widget-admin.php:65
+#: templates/widget-admin.php:66 templates/widget-admin.php:98
+msgid "Tags (comma separated)"
+msgstr "Merkelapper (kommaseparert)"
+
+#: templates/widget-admin.php:73
 msgid "Selection options"
 msgstr "Valgmuligheter"
 
-#: templates/widget-admin.php:71
+#: templates/widget-admin.php:79
 msgid "Single choice"
 msgstr "Valg av én (nedtrekksmeny)"
 
-#: templates/widget-admin.php:78
+#: templates/widget-admin.php:86
 msgid "Multiple choice"
 msgstr "Valg av flere (avkrysningsbokser)"
-
-#: templates/widget-admin.php:83 templates/widget-admin.php:98
-msgid "Tags (comma separated)"
-msgstr "Merkelapper (kommaseparert)"
 
 #: templates/widget-admin.php:92
 msgid "Fixed tag(s)"
