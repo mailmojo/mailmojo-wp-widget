@@ -45,7 +45,9 @@ class MailMojoSettings {
 	 * Return the one and only singleton instance of this class.
 	 */
 	public static function getInstance () {
-		if (empty(self::$instance)) {
+		$obj = self::$instance;
+
+		if (empty($obj)) {
 			self::$instance = new MailMojoSettings();
 		}
 

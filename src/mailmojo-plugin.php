@@ -46,7 +46,9 @@ class MailMojoPlugin {
 	 * Return the one and only singleton instance of this class.
 	 */
 	public static function getInstance () {
-		if (empty(self::$instance)) {
+		$obj = self::$instance;
+
+		if (empty($obj)) {
 			self::$instance = new MailMojoPlugin();
 		}
 
@@ -72,7 +74,8 @@ class MailMojoPlugin {
 	 * @return bool
 	 */
 	public function isActive () {
-		return !empty($this->settings->getAccessToken());
+		$token = $this->settings->getAccessToken();
+		return !empty($token);
 	}
 
 	/**

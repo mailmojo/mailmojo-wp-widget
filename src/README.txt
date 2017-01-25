@@ -3,7 +3,7 @@ Contributors: stianpr, asteinlein
 Tags: mailmojo, newsletter, newsletters, mailing list, signup, subscribe, widget, email, email marketing, email
 Requires at least: 4.0
 Tested up to: 4.7.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,7 +39,10 @@ This plugin requires the PHP curl extension.
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.1 =
+* Fix syntax errors in PHP 5.4.
+
+= 1.0.0 =
 * Important: Requires PHP 5.4 or newer.
 * Use MailMojo API to support retrieval of email lists.
 * Support single vs multiple tag selection.
