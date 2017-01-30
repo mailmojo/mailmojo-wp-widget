@@ -98,6 +98,8 @@ class MailMojoSettings {
 	 * Initiate the settings page.
 	 */
 	public function pageInit () {
+		$token = $this->getAccessToken();
+
 		register_setting(
 			self::GROUP_NAME,
 			'mailmojo_options',
@@ -120,13 +122,15 @@ class MailMojoSettings {
 		);
 
 		// TODO: Remove when username is not needed anymore.
-		add_settings_field(
-			'username',
-			'Username',
-			array($this, 'usernameField'),
-			'mailmojo-settings-admin',
-			'mailmojo_settings_id'
-		);
+		if (empty($token)) {
+			add_settings_field(
+				'username',
+				'Username',
+				array($this, 'usernameField'),
+				'mailmojo-settings-admin',
+				'mailmojo_settings_id'
+			);
+		}
 	}
 
 	/**
