@@ -84,7 +84,11 @@ class MailMojoWidget extends WP_Widget {
 		if (self::$lists === null) {
 			try {
 				$api = new MailMojo\Api\ListsApi();
+
 				self::$lists = $api->getLists();
+				usort(self::$lists, function ($listA, $listB) {
+					return strcmp($listA->getName(), $listB->getName());
+				});
 			}
 			catch (MailMojo\ApiException $e) {
 				echo '<p>' . sprintf(
