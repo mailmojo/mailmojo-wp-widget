@@ -1,9 +1,9 @@
 # Copyright 2013 MailMojo Widget
 msgid ""
 msgstr ""
-"Project-Id-Version: MailMojo Widget 1.0\n"
+"Project-Id-Version: MailMojo Widget 1.0.1\n"
 "Report-Msgid-Bugs-To: https://github.com/eliksir/MailMojo-WP-Widget/issues\n"
-"POT-Creation-Date: 2017-01-24 14:23+0100\n"
+"POT-Creation-Date: 2017-02-02 12:44+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Frode Danielsen <frode@e5r.no>\n"
 "Language-Team: Eliksir AS <dev@e5r.no>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.11\n"
 
-#: mailmojo-plugin.php:64
+#: mailmojo-plugin.php:66
 msgid ""
 "Settings for the MailMojo widget is outdated. <a href=\"%s\">Please update "
 "the settings now</a>."
@@ -21,29 +21,37 @@ msgstr ""
 "Innstillinger for MailMojo-widgeten er utdatert. <a href=\"%s\">Vennligst "
 "oppdater innstillinger nå</a>."
 
-#: mailmojo-plugin.php:115
+#: mailmojo-plugin.php:118
 msgid "Settings"
 msgstr "Innstillinger"
 
-#: mailmojo-settings.php:148
+#: mailmojo-settings.php:191
+msgid ""
+"Access token is not valid. You'll need to <a href=\"%s\">retrieve a new "
+"access token</a> from the WordPress client in MailMojo."
+msgstr ""
+"Tilgangsnøkkelen er ugyldig. Du må <a href=\"%s\">hente en ny "
+"tilgangsnøkkel</a> fra WordPress-integrasjonen i MailMojo."
+
+#: mailmojo-settings.php:204
 msgid ""
 "To connect with your MailMojo account, you need to <a href=\"%s\">retrieve "
-"an access token</a> from a Wordpress Client in MailMojo. This will enable "
+"an access token</a> from a Wordpress client in MailMojo. This will enable "
 "the widget to retrieve the necessary data to enable signups."
 msgstr ""
 "For å koble til din MailMojo-konto må du <a href=\"%s\">hente din "
 "tilgangsnøkkel</a> fra WordPress-integrasjonen i MailMojo. Denne vil gjøre "
 "det mulig å hente ut nødvending informasjon for å støtte påmeldinger."
 
-#: mailmojo-settings.php:161
+#: mailmojo-settings.php:217
 msgid "Paste the access token here"
 msgstr "Lim inn tilgangsnøkkelen her"
 
-#: mailmojo-settings.php:163
+#: mailmojo-settings.php:219
 msgid "Get your access token here"
 msgstr "Få din tilgangsnøkkel her"
 
-#: mailmojo-settings.php:177
+#: mailmojo-settings.php:233
 msgid "Deprecated in favor of using the MailMojo API."
 msgstr "Utdatert til fordel for å bruke MailMojo API"
 
@@ -63,7 +71,7 @@ msgstr ""
 "Du må legge inn informasjon for din MailMojo-konto under <a href=\"%s"
 "\">MailMojo-innstillinger</a> først."
 
-#: mailmojo-widget.php:91
+#: mailmojo-widget.php:95
 msgid ""
 "Your email lists could not be retrieved. Please go to <a href=\"%s"
 "\">MailMojo settings page</a> and make sure the access token is correct."
@@ -71,7 +79,7 @@ msgstr ""
 "Dine e-postlister er ikke tilgjengelig. Vennligst gå til <a href=\"%s"
 "\">MailMojo-innstillinger</a> og sørg for at tilgangsnøkkelen er riktig."
 
-#: mailmojo-widget.php:97
+#: mailmojo-widget.php:101
 msgid ""
 "You don't have any email lists in MailMojo. Please go to MailMojo and add "
 "one. Refresh this page when done."
@@ -79,15 +87,15 @@ msgstr ""
 "Du har ingen e-postlister i MailMojo. Vennligst gå til MailMojo og legg til "
 "dette. Oppdater denne siden når det er gjort."
 
-#: mailmojo-widget.php:105
+#: mailmojo-widget.php:109
 msgid "Newsletter Signup"
 msgstr "Nyhetsbrev"
 
-#: mailmojo-widget.php:108
+#: mailmojo-widget.php:112
 msgid "Interests:"
 msgstr "Interesser:"
 
-#: mailmojo-widget.php:112
+#: mailmojo-widget.php:116
 msgid "Sign me up!"
 msgstr "Meld meg på!"
 

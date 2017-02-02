@@ -71,6 +71,43 @@ class MailMojoSettings {
 	}
 
 	/**
+	 * Check if an access token is valid for fetching email lists.
+	 *
+	 * Temporarily overrides API access token in API configuration, then
+	 * attempts to fetch lists from the API. If the attempt fails, we assume
+	 * the access token is invalid.
+	 *
+	 * @param string $token
+	 * @return bool
+	 */
+	public function validateAccessToken () {
+		$token = $this->getAccessToken();
+
+		if (empty($token)) {
+			return true;
+		}
+
+		$apiConfig = MailMojo\Configuration::getDefaultConfiguration();
+		$existingToken = $apiConfig->getAccessToken();
+		$isValid = true;
+
+		$apiConfig->setAccessToken($token);
+		$api = new MailMojo\Api\ListsApi();
+
+		try {
+			$lists = $api->getLists();
+		}
+		catch (MailMojo\ApiException $e) {
+			$isValid = false;
+		}
+		finally {
+			$apiConfig->setAccessToken($existingToken);
+		}
+
+		return $isValid;
+	}
+
+	/**
 	 * Returns username stored as an option if it exists.
 	 *
 	 * TODO: Remove when username is not needed anymore.
@@ -90,7 +127,7 @@ class MailMojoSettings {
 			self::MENU_TITLE,
 			'manage_options',
 			self::MENU_SLUG,
-			array($this, 'create_admin_page')
+			array($this, 'createAdminPage')
 		);
 	}
 
@@ -142,8 +179,22 @@ class MailMojoSettings {
 
 	/**
 	 * Hook for printing the admin page for the settings.
+	 *
+	 * Also performs validation of any configured token, giving an error message
+	 * if the token is invalid.
 	 */
-	public function create_admin_page () {
+	public function createAdminPage () {
+		$notice = null;
+
+		if (!$this->validateAccessToken()) {
+			$notice = sprintf(
+				'<div class="notice notice-error"><p>' .
+					__('Access token is not valid. You\'ll need to <a href="%s">retrieve a new access token</a> from the WordPress client in MailMojo.', 'mailmojo') .
+				'</p></div>',
+				MailMojoSettings::MM_INTEGRATIONS_URL
+			);
+		}
+
 		include('templates/settings.php');
 	}
 
@@ -151,7 +202,7 @@ class MailMojoSettings {
 	 * Output section for settings.
 	 */
 	public function settingsSection () {
-		echo '<p>' . sprintf(__('To connect with your MailMojo account, you need to <a href="%s">retrieve an access token</a> from a Wordpress Client in MailMojo. This will enable the widget to retrieve the necessary data to enable signups.', 'mailmojo'),
+		echo '<p>' . sprintf(__('To connect with your MailMojo account, you need to <a href="%s">retrieve an access token</a> from a Wordpress client in MailMojo. This will enable the widget to retrieve the necessary data to enable signups.', 'mailmojo'),
 			MailMojoSettings::MM_INTEGRATIONS_URL) . '</p>';
 	}
 

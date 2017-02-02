@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the MailMojo Widget package.
 msgid ""
 msgstr ""
-"Project-Id-Version: MailMojo Widget 1.0\n"
+"Project-Id-Version: MailMojo Widget 1.0.1\n"
 "Report-Msgid-Bugs-To: https://github.com/eliksir/MailMojo-WP-Widget/issues\n"
-"POT-Creation-Date: 2017-01-24 13:22:06+00:00\n"
+"POT-Creation-Date: 2017-02-02 11:44:16+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,32 +12,38 @@ msgstr ""
 "Last-Translator: Frode Danielsen <frode@e5r.no>\n"
 "Language-Team: Eliksir AS <dev@e5r.no>\n"
 
-#: mailmojo-plugin.php:64
+#: mailmojo-plugin.php:66
 msgid ""
 "Settings for the MailMojo widget is outdated. <a href=\"%s\">Please update "
 "the settings now</a>."
 msgstr ""
 
-#: mailmojo-plugin.php:115
+#: mailmojo-plugin.php:118
 msgid "Settings"
 msgstr ""
 
-#: mailmojo-settings.php:148
+#: mailmojo-settings.php:191
+msgid ""
+"Access token is not valid. You'll need to <a href=\"%s\">retrieve a new "
+"access token</a> from the WordPress client in MailMojo."
+msgstr ""
+
+#: mailmojo-settings.php:204
 msgid ""
 "To connect with your MailMojo account, you need to <a href=\"%s\">retrieve "
-"an access token</a> from a Wordpress Client in MailMojo. This will enable "
+"an access token</a> from a Wordpress client in MailMojo. This will enable "
 "the widget to retrieve the necessary data to enable signups."
 msgstr ""
 
-#: mailmojo-settings.php:161
+#: mailmojo-settings.php:217
 msgid "Paste the access token here"
 msgstr ""
 
-#: mailmojo-settings.php:163
+#: mailmojo-settings.php:219
 msgid "Get your access token here"
 msgstr ""
 
-#: mailmojo-settings.php:177
+#: mailmojo-settings.php:233
 msgid "Deprecated in favor of using the MailMojo API."
 msgstr ""
 
@@ -55,27 +61,27 @@ msgid ""
 "\">MailMojo settings page</a> first."
 msgstr ""
 
-#: mailmojo-widget.php:91
+#: mailmojo-widget.php:95
 msgid ""
 "Your email lists could not be retrieved. Please go to <a href=\"%s"
 "\">MailMojo settings page</a> and make sure the access token is correct."
 msgstr ""
 
-#: mailmojo-widget.php:97
+#: mailmojo-widget.php:101
 msgid ""
 "You don't have any email lists in MailMojo. Please go to MailMojo and add "
 "one. Refresh this page when done."
 msgstr ""
 
-#: mailmojo-widget.php:105
+#: mailmojo-widget.php:109
 msgid "Newsletter Signup"
 msgstr ""
 
-#: mailmojo-widget.php:108
+#: mailmojo-widget.php:112
 msgid "Interests:"
 msgstr ""
 
-#: mailmojo-widget.php:112
+#: mailmojo-widget.php:116
 msgid "Sign me up!"
 msgstr ""
 
