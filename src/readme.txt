@@ -3,7 +3,7 @@ Contributors: stianpr, asteinlein, fdanielsen
 Tags: mailmojo, newsletter, newsletters, mailing list, signup, subscribe, widget, email, email marketing, email
 Requires at least: 4.0
 Tested up to: 4.7.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,6 +38,10 @@ This plugin requires the PHP curl extension.
 2. Customize the widget with your choices.
 
 == Changelog ==
+
+= 1.0.2 =
+* Sort email lists in widget dropdown
+* Validate access token when updating settings
 
 = 1.0.1 =
 * Fix syntax errors in PHP 5.4.
