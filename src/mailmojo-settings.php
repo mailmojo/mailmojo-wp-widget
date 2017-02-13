@@ -100,9 +100,8 @@ class MailMojoSettings {
 		catch (MailMojo\ApiException $e) {
 			$isValid = false;
 		}
-		finally {
-			$apiConfig->setAccessToken($existingToken);
-		}
+
+		$apiConfig->setAccessToken($existingToken);
 
 		return $isValid;
 	}
