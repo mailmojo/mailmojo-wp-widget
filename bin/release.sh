@@ -7,7 +7,7 @@ fi
 
 VERSION=$1
 
-DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SRC="${DIR}/src"
 LOCAL="${DIR}/wp-plugin-repo"
 REPO="https://plugins.svn.wordpress.org/mailmojo-widget"
