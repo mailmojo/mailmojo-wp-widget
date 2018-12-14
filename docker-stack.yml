@@ -1,0 +1,51 @@
+version: '3.1'
+services:
+
+    wordpress:
+        image: wordpress:5.0-php7.2
+        ports:
+            - 3333:80
+        volumes:
+            - ./src:/var/www/html/wp-content/plugins/mailmojo-wp-plugin
+        networks:
+            - backend
+        depends_on:
+            - mysql
+        deploy:
+            replicas: 1
+        environment:
+            WORDPRESS_DB_NAME: mailmojo_wp
+            WORDPRESS_TABLE_PREFIX: wp_
+            WORDPRESS_DB_USER: mailmojo_wp
+            WORDPRESS_DB_HOST: mysql
+            WORDPRESS_DB_PASSWORD_FILE: '/run/secrets/mailmojo_mysql_password'
+        secrets:
+            - mailmojo_mysql_password
+
+    mysql:
+        image: mysql:5.7
+        volumes:
+            - mailmojo_wp-db-data:/var/lib/mysql
+        networks:
+            - backend
+        ports:
+            - 3306:3306
+        deploy:
+            replicas: 1
+        environment:
+            MYSQL_ROOT_PASSWORD: 'mailmojo-secret-pwd'
+            MYSQL_DATABASE: mailmojo_wp
+            MYSQL_USER: mailmojo_wp
+            MYSQL_PASSWORD_FILE: '/run/secrets/mailmojo_mysql_password'
+        secrets:
+            - mailmojo_mysql_password
+
+networks:
+    backend:
+
+volumes:
+    mailmojo_wp-db-data:
+
+secrets:
+    mailmojo_mysql_password:
+        external: true
