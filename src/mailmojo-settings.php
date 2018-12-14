@@ -21,7 +21,7 @@ class MailMojoSettings {
 	const MENU_SLUG = 'mailmojo-widget';
 	const MENU_TITLE = 'MailMojo';
 	const PAGE_TITLE = 'MailMojo';
-	const MM_INTEGRATIONS_URL = 'https://v2.mailmojo.no/account/integrations/wordpress/';
+	const MM_INTEGRATIONS_URL = 'https://v3.mailmojo.no/integrations/wordpress/';
 
 	private $options;
 	private $plugin;
